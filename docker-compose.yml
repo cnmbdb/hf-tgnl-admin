@@ -1,0 +1,118 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_BASE_PATH: ${APP_BASE_PATH}
+        PORT: ${PORT}
+    image: tgnl-admin-app:local
+    container_name: tgnl-admin-app
+    working_dir: /app
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./nl-2333/config.txt:/app/nl-2333/config.txt
+      - ./nl-2333/al.py:/app/nl-2333/al.py
+      - ./nl-2333/keyword_replies.json:/app/nl-2333/keyword_replies.json
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: root
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT:-3306}
+      - APP_BASE_PATH=${APP_BASE_PATH}
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - NITRO_HOST=0.0.0.0
+      - PORT=3000
+      - NITRO_PORT=3000
+    ports:
+      # 安全：默认仅绑定本机回环地址，避免公网直接扫到容器端口
+      # 如需对外暴露（不建议），在 .env 中设置 BIND_IP=0.0.0.0
+      - "${BIND_IP:-127.0.0.1}:${PORT}:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000${APP_BASE_PATH}/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  db:
+    image: mysql:8.0
+    container_name: tgnl-admin-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-root}
+      - MYSQL_DATABASE=${DB_NAME:-tgnl}
+    ports:
+      # 安全：默认仅本机可访问（app/bot 走 docker 内网访问 db）
+      - "${BIND_IP:-127.0.0.1}:3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./nl-admin.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s  # 给数据库初始化时间
+
+  bot:
+    build:
+      context: ./nl-2333
+      dockerfile: Dockerfile
+    image: tgnl-admin-bot:local
+    container_name: tgnl-admin-bot
+    working_dir: /app
+    volumes:
+      - ./nl-2333/config.txt:/app/config.txt
+      - ./nl-2333/al.py:/app/al.py:ro
+      - ./nl-2333/config_watcher.py:/app/config_watcher.py:ro
+      - ./nl-2333/keyword_replies.json:/app/keyword_replies.json
+      - ./nl-2333/logs:/app/logs
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Shanghai
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      # 兼容 al.py 脚本使用的数据库环境变量（指向同一个 MySQL 实例）
+      - TG_DB_HOST=db
+      - TG_DB_USER=root
+      - TG_DB_PASSWORD=${DB_PASSWORD:-root}
+      - TG_DB_NAME=${DB_NAME:-tgnl}
+      - PORT=3000
+      - APP_BASE_PATH=${APP_BASE_PATH}
+      - APP_HOST=app
+      # BOT_TOKEN 从 env_file(.env) 注入；不要在这里用 ${BOT_TOKEN} 覆盖（否则宿主机未导出时会变成空值）
+      - BOT_WEBHOOK_URL=${BOT_WEBHOOK_URL:-}
+      - BOT_WEBHOOK_PORT=${BOT_WEBHOOK_PORT:-8443}
+      - BOT_WEBHOOK_PATH=${BOT_WEBHOOK_PATH:-}
+    # 允许访问宿主机服务（用于连接 tgnl-home 的 Next.js）
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # Webhook 端口映射（如果使用 Webhook 模式）
+    ports:
+      # 安全：默认仅本机可访问；如果你用 Nginx 反代到 bot，请保持 localhost 绑定即可
+      - "${BIND_IP:-127.0.0.1}:${BOT_WEBHOOK_PORT:-8443}:${BOT_WEBHOOK_PORT:-8443}"
+      - "${BIND_IP:-127.0.0.1}:8080:8080"  # 充值通知服务器端口
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
