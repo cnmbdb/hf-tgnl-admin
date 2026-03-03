@@ -69,6 +69,10 @@ export default defineEventHandler(async (event) => {
     const hourPrice = body.hourPrice ? parseFloat(String(body.hourPrice)) : NaN
     const dayPrice = body.dayPrice ? parseFloat(String(body.dayPrice)) : NaN
     const threeDayPrice = body.threeDayPrice ? parseFloat(String(body.threeDayPrice)) : NaN
+    const bishu5Price = body.bishu5Price ? parseFloat(String(body.bishu5Price)) : NaN
+    const bishu15Price = body.bishu15Price ? parseFloat(String(body.bishu15Price)) : NaN
+    const bishu50Price = body.bishu50Price ? parseFloat(String(body.bishu50Price)) : NaN
+    const bishu100Price = body.bishu100Price ? parseFloat(String(body.bishu100Price)) : NaN
 
     const priceEntries: { key: string; label: string; value: number }[] = []
 
@@ -95,6 +99,20 @@ export default defineEventHandler(async (event) => {
         { key: 'day3_30', label: '3天内每天30次', value: threeDayPrice * 90 },
         { key: 'day3_50', label: '3天内每天50次', value: threeDayPrice * 150 }
       )
+    }
+
+    // 笔数套餐价格本身也要避免互相撞（笔数套餐之间）
+    if (!Number.isNaN(bishu5Price) && bishu5Price > 0) {
+      priceEntries.push({ key: 'bishu_5', label: '笔数套餐 5笔', value: bishu5Price })
+    }
+    if (!Number.isNaN(bishu15Price) && bishu15Price > 0) {
+      priceEntries.push({ key: 'bishu_15', label: '笔数套餐 15笔', value: bishu15Price })
+    }
+    if (!Number.isNaN(bishu50Price) && bishu50Price > 0) {
+      priceEntries.push({ key: 'bishu_50', label: '笔数套餐 50笔', value: bishu50Price })
+    }
+    if (!Number.isNaN(bishu100Price) && bishu100Price > 0) {
+      priceEntries.push({ key: 'bishu_100', label: '笔数套餐 100笔', value: bishu100Price })
     }
 
     // 检查价格是否冲突（不同套餐价格相同会导致充值金额无法唯一识别）
@@ -126,6 +144,10 @@ export default defineEventHandler(async (event) => {
     upsertConfigKey('hour_price', body.hourPrice || '')
     upsertConfigKey('day_price', body.dayPrice || '')
     upsertConfigKey('three_day_price', body.threeDayPrice || '')
+    upsertConfigKey('bishu_5_price', body.bishu5Price || '')
+    upsertConfigKey('bishu_15_price', body.bishu15Price || '')
+    upsertConfigKey('bishu_50_price', body.bishu50Price || '')
+    upsertConfigKey('bishu_100_price', body.bishu100Price || '')
 
     // 能量池与回调配置
     upsertConfigKey('energy_pool_api', body.energyPoolApi || '')

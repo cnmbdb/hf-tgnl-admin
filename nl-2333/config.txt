@@ -4,14 +4,14 @@ bot_id=https://t.me/HFTGNLTRXbot
 group_link=https://t.me/hgsbhb
 control_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
 privateKey=23333344444
-username=
-password=
+username=api_6216ae2d
+password=pw_1201d09cead039739c07b6eb
 ad_time=940
 huilv_zhekou=0.90
 admin_id=825512163
 hour_price=1
-day_price=9.0
-three_day_price=7.0
+day_price=3
+three_day_price=3
 # 能量池系统地址（服务器环境）
 # 如果两个系统在同一服务器，可以使用 https://tgnl-home.hfz.pw
 energy_pool_api=https://tgnl-home.hfz.pw
@@ -33,5 +33,8 @@ enable_fanhuan_settlement=0
 # fanhuan_settlement_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
 # fanhuan_min_amount=0.1
 # 结算执行时间（小时和分钟，默认 11:00）
-# fanhuan_settlement_hour=11
-# fanhuan_settlement_minute=0
+# fanhuan_settlement_h
+bishu_5_price=11
+bishu_15_price=20
+bishu_50_price=45
+bishu_100_price=100

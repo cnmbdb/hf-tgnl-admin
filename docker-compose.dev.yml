@@ -1,0 +1,16 @@
+services:
+  app:
+    # 覆盖基础 compose 里的 app 配置，用本地源码热更新开发
+    volumes:
+      # 挂载整个项目到容器里，Nuxt 代码改了马上生效
+      - .:/app
+      # bot 重载、更新脚本里需要的 docker.sock 继续保留
+      - /var/run/docker.sock:/var/run/docker.sock
+    # 开发模式运行 Nuxt（使用你 package.json 里的 dev 命令）
+    command: npm run dev
+    environment:
+      NODE_ENV: development
+      NITRO_PORT: 3000
+      HOST: 0.0.0.0
+      NITRO_HOST: 0.0.0.0
+

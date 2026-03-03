@@ -552,6 +552,8 @@ def reload_config():
     """重新加载配置文件"""
     global CUSTOMER_SERVICE_ID, bot_id, group_link, control_address, privateKey, username, password
     global huilv_zhekou, admin_id, hour_price, day_price, yucun_price, three_day_price, message, energy_pool_api, bot_username
+    # 笔数套餐价格（以 TRX 为单位），默认值与原始文案保持一致
+    global bishu_5_price, bishu_15_price, bishu_50_price, bishu_100_price
     global main_menu_layout, label_to_key, label_to_chain_id, bot_notify_url, keyword_replies_data, usdt2trx_private_key
     
     try:
@@ -584,6 +586,12 @@ def reload_config():
             three_day_price = float(config['three_day_price'])
         if 'yucun_price' in config:
             yucun_price = float(config['yucun_price'])
+
+        # 笔数套餐价格（可选配置，默认 5笔/15T, 15笔/45T, 50笔/150T, 100笔/300T）
+        bishu_5_price = float(config.get('bishu_5_price', bishu_5_price if 'bishu_5_price' in globals() else 15))
+        bishu_15_price = float(config.get('bishu_15_price', bishu_15_price if 'bishu_15_price' in globals() else 45))
+        bishu_50_price = float(config.get('bishu_50_price', bishu_50_price if 'bishu_50_price' in globals() else 150))
+        bishu_100_price = float(config.get('bishu_100_price', bishu_100_price if 'bishu_100_price' in globals() else 300))
         # 唯一桥链：强制从 config.txt 读取 energy_pool_api
         if 'energy_pool_api' not in config or not config['energy_pool_api'].strip():
             logging.error("config.txt 中必须配置 energy_pool_api（能量池系统地址）")
@@ -3345,14 +3353,15 @@ def handle_callback(update, context) -> None:
         if query.data == "bishu_add":
             query.answer()
             # 显示套餐选择
+            # 使用可配置的笔数套餐价格（bishu_*_price）
             keyboard = [
                 [
-                    InlineKeyboardButton("5笔/15T", callback_data="bishu_pkg_5_15"),
-                    InlineKeyboardButton("15笔/45T", callback_data="bishu_pkg_15_45")
+                    InlineKeyboardButton(f"5笔/{int(bishu_5_price)}T", callback_data=f"bishu_pkg_5_{int(bishu_5_price)}"),
+                    InlineKeyboardButton(f"15笔/{int(bishu_15_price)}T", callback_data=f"bishu_pkg_15_{int(bishu_15_price)}")
                 ],
                 [
-                    InlineKeyboardButton("50笔/150T", callback_data="bishu_pkg_50_150"),
-                    InlineKeyboardButton("100笔/300T", callback_data="bishu_pkg_100_300")
+                    InlineKeyboardButton(f"50笔/{int(bishu_50_price)}T", callback_data=f"bishu_pkg_50_{int(bishu_50_price)}"),
+                    InlineKeyboardButton(f"100笔/{int(bishu_100_price)}T", callback_data=f"bishu_pkg_100_{int(bishu_100_price)}")
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
@@ -4903,6 +4912,8 @@ def main():
     # 将 connection 作为参数传递给 create_database
     create_database()
     global CUSTOMER_SERVICE_ID, bot_id, group_link, control_address, privateKey, username, password,huilv_zhekou,message,admin_id,hour_price,day_price,yucun_price,three_day_price,energy_pool_api,bot_username,usdt2trx_private_key
+    # 笔数套餐价格（以 TRX 为单位）
+    global bishu_5_price, bishu_15_price, bishu_50_price, bishu_100_price
     config = read_config('config.txt')
     TOKEN = os.getenv('BOT_TOKEN') or config.get('TOKEN', '')
     CUSTOMER_SERVICE_ID = config.get('CUSTOMER_SERVICE_ID', '')
@@ -4928,6 +4939,12 @@ def main():
     day_price = float((config.get('day_price', '5') or '5'))
     three_day_price = float((config.get('three_day_price', '15') or '15'))
     yucun_price = float((config.get('yucun_price', '10') or '10'))
+
+    # 笔数套餐默认价格（保持与原始写死的文案一致）
+    bishu_5_price = float((config.get('bishu_5_price', '15') or '15'))
+    bishu_15_price = float((config.get('bishu_15_price', '45') or '45'))
+    bishu_50_price = float((config.get('bishu_50_price', '150') or '150'))
+    bishu_100_price = float((config.get('bishu_100_price', '300') or '300'))
     # 唯一桥链：强制从 config.txt 读取 energy_pool_api，如果没有配置则报错
     if 'energy_pool_api' not in config or not config['energy_pool_api'].strip():
         raise ValueError("config.txt 中必须配置 energy_pool_api（能量池系统地址）")

@@ -88,6 +88,11 @@ export default defineEventHandler(async (event) => {
         hourPrice: configData.hour_price || '',
         dayPrice: configData.day_price || '',
         threeDayPrice: configData.three_day_price || '',
+        // 笔数套餐价格 - 从config.txt读取（单位 TRX）
+        bishu5Price: configData.bishu_5_price || '',
+        bishu15Price: configData.bishu_15_price || '',
+        bishu50Price: configData.bishu_50_price || '',
+        bishu100Price: configData.bishu_100_price || '',
         
         // 能量池配置 - 从config.txt读取
         energyPoolApi: configData.energy_pool_api || '',
