@@ -1,0 +1,14 @@
+{
+  "commands": {
+    "/start": [
+      {
+        "id": "start_text",
+        "type": "text",
+        "content": "您好，{username}\n欢迎使用自动充值能量机器人\n您的平台ID:{user_id}",
+        "order": 1
+      }
+    ],
+    "查询后台信息": []
+  },
+  "buttons": {}
+}

@@ -1,0 +1,300 @@
+/* 设置页面背景色跟随主题，使下拉/回弹时的底色与页面一致 */
+html, body, #app {
+  background-color: var(--vp-c-bg) !important;
+  min-height: 100vh;
+}
+
+.VPHomeHero {
+  position: relative;
+  padding: 96px 0;
+  /* 官网亮色效果：整体白底，光晕集中在卡片附近 */
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* 主题主色（Brand Color）：按你给的图3荧光绿色 */
+:root {
+  --vp-c-brand-1: #00d26a;
+  --vp-c-brand-2: #00c062;
+  --vp-c-brand-3: #00a855;
+}
+
+.dark {
+  --vp-c-brand-1: #00d26a;
+  --vp-c-brand-2: #00c062;
+  --vp-c-brand-3: #00a855;
+}
+
+/* 首页 Hero 大标题颜色：强制使用主题绿 */
+.VPHomeHero .name,
+.dark .VPHomeHero .name {
+  color: var(--vp-c-brand-1);
+}
+
+/* 主按钮使用主题绿背景 */
+.VPHomeHero .actions .VPButton.brand {
+  background-color: var(--vp-c-brand-1);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.VPHomeHero .actions .VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+}
+
+.dark .VPHomeHero {
+  /* 与整体暗色背景保持一致 */
+  background: var(--vp-c-bg);
+  color: #e5e7eb;
+}
+
+.dark .VPHomeHero .name,
+.dark .VPHomeHero .text,
+.dark .VPHomeHero .tagline {
+  color: #e5e7eb;
+}
+
+.dark .VPHomeHero .actions .VPButton {
+  color: #e5e7eb;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .VPHomeHero .actions .VPButton.brand {
+  color: #0f172a;
+  background-color: #e5e7eb;
+  border-color: #e5e7eb;
+}
+
+.VPHomeHero .container {
+  align-items: center;
+  gap: 72px;
+}
+
+.VPHomeHero .main {
+  max-width: 520px;
+}
+
+.VPHomeHero .text {
+  font-size: 2.9rem;
+}
+
+.VPHomeHero .tagline {
+  font-size: 1.12rem;
+}
+
+.VPHomeHero .image::before {
+  content: '';
+  position: absolute;
+  /* 光晕区域更集中在卡片周围，类似官网截图 */
+  inset: -60px -80px -60px -80px;
+  z-index: 0;
+  /* 关闭蓝/粉色氛围光 */
+  background: transparent;
+  filter: none;
+  transform: none;
+  pointer-events: none;
+}
+
+.VPFeatures {
+  padding-bottom: 96px;
+}
+
+/* 移动端自适应：图片和标题居中，避免错位 */
+@media (max-width: 768px) {
+  .VPHomeHero {
+    padding: 16px 16px 32px; /* 适当留一点呼吸空间 */
+  }
+
+  .VPHomeHero .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .VPHomeHero .main {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .VPHomeHero .text {
+    font-size: 1.5rem; /* 再小一点，让整体更紧凑 */
+  }
+
+  .VPHomeHero .tagline {
+    font-size: 0.95rem;
+  }
+
+  .VPHomeHero .actions {
+    justify-content: center;
+  }
+
+  .VPHomeHero .image {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important; /* 强制清除默认的负 margin */
+    padding: 0 20px !important; /* 增加一点内边距防止贴边 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: none !important;
+    position: static !important;
+  }
+
+  /* 覆盖 .image-container 的固定宽高 */
+  .VPHomeHero .image-container {
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: none !important;
+  }
+
+  /* 覆盖 .image-src (img) 的绝对定位和最大宽高限制 */
+  .VPHomeHero .image-src,
+  .VPHomeHero .image img {
+    position: static !important; /* 清除 absolute */
+    transform: none !important;  /* 清除 translate(-50%, -50%) */
+    top: auto !important;
+    left: auto !important;
+    
+    width: auto !important;      /* 宽度自适应 */
+    max-width: 60% !important;   /* 限制最大宽度为屏幕的 60%，避免过大 */
+    max-height: 300px !important; /* 同时也限制一下高度，防止过高 */
+    height: auto !important;     /* 保持比例 */
+    
+    object-fit: contain;
+    clip-path: inset(0);
+    border-radius: 24px;
+    margin: 0 auto !important;
+    display: block !important;   /* 确保 block 显示以便 margin auto 生效 */
+  }
+
+  /* 可选：调整背景光晕的大小或隐藏，避免错位 */
+  .VPHomeHero .image-bg {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    background-size: contain;
+    opacity: 0.5; /* 稍微淡一点 */
+  }
+}
+
+/* Sidebar 分割线效果增强 */
+.VPSidebarItem.level-0 {
+  padding-bottom: 24px;
+}
+
+.VPSidebarItem.level-0:not(:first-child) {
+  margin-top: 24px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+}
+
+/* Sidebar 选中项高亮颜色（保持绿色） */
+.VPSidebarItem.level-1.is-active > .item > .link > .text,
+.VPSidebarItem.level-2.is-active > .item > .link > .text,
+.VPSidebarItem.level-3.is-active > .item > .link > .text,
+.VPSidebarItem.level-4.is-active > .item > .link > .text,
+.VPSidebarItem.level-5.is-active > .item > .link > .text {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* GitHub 按钮样式优化（Nuxt 风格绿色） */
+.vp-button-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 0 20px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 38px;
+  color: #fff !important; /* 强制白色，防止被覆盖 */
+  background-color: var(--vp-c-brand-1);
+  border-radius: 20px;
+  transition: background-color 0.25s, transform 0.1s;
+  text-decoration: none;
+}
+
+/* 深色模式下，文字改为黑色，增加对比度 */
+.dark .vp-button-green {
+  color: #000 !important;
+}
+
+.vp-button-green:hover {
+  background-color: var(--vp-c-brand-2);
+  text-decoration: none;
+  /* 悬停时，浅色模式保持白色，深色模式保持黑色 */
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.dark .vp-button-green:hover {
+  color: #000 !important;
+}
+
+.vp-button-green:active {
+  background-color: var(--vp-c-brand-3);
+  transform: translateY(0);
+}
+
+/* 标题图标样式 */
+.title-icon {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 8px;
+  color: var(--vp-c-brand-1);
+}
+
+/* 截图展示墙样式 */
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+@media (max-width: 768px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screenshot-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--vp-c-bg-soft);
+}
+
+.screenshot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 210, 106, 0.15); /* 使用品牌绿色的光晕 */
+  border-color: var(--vp-c-brand-1);
+}
+
+.screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: top;
+}
+
+.screenshot-caption {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--vp-c-text-2);
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+

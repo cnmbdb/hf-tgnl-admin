@@ -1,0 +1,37 @@
+TOKEN=7387974353:AAG63Y9AppuYAtEgbfecCZVeA4DKLyTnMCg
+CUSTOMER_SERVICE_ID=https://t.me/HTTGID
+bot_id=https://t.me/HFTGNLTRXbot
+group_link=https://t.me/hgsbhb
+control_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
+privateKey=23333344444
+username=
+password=
+ad_time=940
+huilv_zhekou=0.90
+admin_id=825512163
+hour_price=1
+day_price=9.0
+three_day_price=7.0
+# 能量池系统地址（服务器环境）
+# 如果两个系统在同一服务器，可以使用 https://tgnl-home.hfz.pw
+energy_pool_api=https://tgnl-home.hfz.pw
+
+# 机器人通知地址（服务器环境）
+# 如果两个系统在同一服务器，使用 localhost 或服务器内网 IP
+# 部署到服务器后，需要根据实际情况修改此地址
+bot_notify_url=http://155.254.105.8:8080/api/recharge-notify
+Versionidentifier=APP_VERSION
+
+# 主键盘菜单配置（JSON格式，9个按钮的布局，按行组织）
+# key 固定不变（用于代码逻辑），label 可修改（显示文案）
+main_menu_buttons_json=[[{"key":"bishu","label":"📦 笔数套餐","chain_id":1}],[{"key":"usdt2trx","label":"✅ USDT转TRX","chain_id":3}],[{"key":"check_tx","label":"🔍 查交易","chain_id":4},{"key":"trx2energy","label":"⚡ TRX转能量","chain_id":5}],[{"key":"monitored_addresses","label":"📍 已监听地址","chain_id":6},{"key":"toggle_monitor","label":"🔔 开始/结束监听","chain_id":7}],[{"key":"recharge","label":"💳 我要充值","chain_id":8},{"key":"profile","label":"👤 个人中心","chain_id":9}]]
+usdt2trx_private_key=23333344444
+
+# 返利结算（每日自动向代理地址结算USDT转TRX返利，发送「结算成功」通知）
+# 0=关闭 1=开启
+enable_fanhuan_settlement=0
+# fanhuan_settlement_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
+# fanhuan_min_amount=0.1
+# 结算执行时间（小时和分钟，默认 11:00）
+# fanhuan_settlement_hour=11
+# fanhuan_settlement_minute=0

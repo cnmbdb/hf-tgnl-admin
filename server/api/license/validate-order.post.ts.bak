@@ -1,0 +1,183 @@
+import { requireAuth } from '../../utils/auth'
+import { executeQuery } from '../../utils/database'
+
+/**
+ * 从WordPress REST API获取订单信息
+ */
+async function getWordPressOrder(orderNumber: string, productId: number) {
+  const config = useRuntimeConfig()
+  const wpUrl = config.WORDPRESS_URL as string
+  const username = config.WORDPRESS_USERNAME as string
+  const appPassword = config.WORDPRESS_APP_PASSWORD as string
+
+  try {
+    // 使用子比主题API查询订单
+    const auth = Buffer.from(`${username}:${appPassword}`).toString('base64')
+    const response = await $fetch(`${wpUrl}/wp-json/zibll/v1/order/${orderNumber}`, {
+      headers: {
+        'Authorization': `Basic ${auth}`,
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log('[WordPress API] 订单查询成功:', response)
+
+    // 验证订单状态和商品ID
+    const order = response as any
+    if (order.pay_status !== '1') {
+      throw new Error('订单未支付')
+    }
+
+    if (parseInt(order.product_id) !== productId) {
+      throw new Error(`商品ID不匹配，期望${productId}，实际${order.product_id}`)
+    }
+
+    return order
+  } catch (error: any) {
+    console.error('[WordPress API] 订单查询失败:', error)
+    throw error
+  }
+}
+
+/**
+ * 从商品名称中获取授权时长
+ */
+function getProductDuration(productName: string): number {
+  if (productName.includes('月')) {
+    const match = productName.match(/(\d+)个?月/)
+    if (match) {
+      return parseInt(match[1]) * 30
+    }
+  }
+  if (productName.includes('年')) {
+    const match = productName.match(/(\d+)年/)
+    if (match) {
+      return parseInt(match[1]) * 365
+    }
+  }
+  return 365 // 默认1年
+}
+
+/**
+ * 计算到期日期
+ */
+function calculateExpiryDate(startDate: string, durationDays: number): string {
+  const start = new Date(startDate)
+  const expiry = new Date(start.getTime() + durationDays * 24 * 60 * 60 * 1000)
+  return expiry.toISOString().split('T')[0]
+}
+
+/**
+ * 从商品名称中获取版本信息
+ */
+function getEditionFromProduct(productName: string): string {
+  if (productName.includes('企业版') || productName.includes('Enterprise')) {
+    return '企业版'
+  }
+  if (productName.includes('专业版') || productName.includes('Professional')) {
+    return '专业版'
+  }
+  if (productName.includes('基础版') || productName.includes('Basic')) {
+    return '基础版'
+  }
+  return '标准版'
+}
+
+export default defineEventHandler(async (event) => {
+  try {
+    const body = await readBody(event)
+    const { orderNumber } = body
+
+    console.log('[订单验证] 开始验证订单:', orderNumber)
+
+    if (!orderNumber) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: '订单号不能为空'
+      })
+    }
+
+    // 检查订单号是否已经被激活
+    const existingLicense = await executeQuery(
+      'SELECT * FROM licenses WHERE order_number = ?',
+      [orderNumber]
+    ) as any[]
+
+    if (existingLicense.length > 0) {
+      // 订单已激活,返回已激活的信息
+      const license = existingLicense[0]
+      let productInfo: any = {}
+      try {
+        productInfo = typeof license.product_info === 'string' 
+          ? JSON.parse(license.product_info) 
+          : (license.product_info || {})
+      } catch (e) {
+        productInfo = {}
+      }
+      
+      return {
+        valid: true,
+        message: '订单已激活',
+        activated: true,
+        license: {
+          orderId: license.order_id,
+          orderNumber: license.order_number,
+          customerEmail: license.email,
+          customerName: license.customer_name,
+          edition: productInfo.edition || '标准版',
+          duration: productInfo.duration_days || 365,
+          expiryDate: license.expiry_date,
+          activatedAt: license.activated_at
+        }
+      }
+    }
+
+    // 从WordPress REST API验证订单 - 从环境变量读取商品ID
+    const config = useRuntimeConfig()
+    const productId = parseInt((config.WORDPRESS_PRODUCT_ID as string) || '2061')
+    
+    console.log('[验证] 使用商品ID:', productId)
+
+    const orderInfo = await getWordPressOrder(orderNumber, productId)
+
+    if (!orderInfo) {
+      return {
+        valid: false,
+        message: '订单不存在或验证失败'
+      }
+    }
+
+    // 计算授权信息
+    const productName = orderInfo.product_name || ''
+    const duration = getProductDuration(productName)
+    const payTime = orderInfo.pay_time || new Date().toISOString()
+    const expiryDate = calculateExpiryDate(payTime, duration)
+    const edition = getEditionFromProduct(productName)
+
+    return {
+      valid: true,
+      message: '订单验证成功',
+      license: {
+        orderId: orderInfo.order_id,
+        orderNumber: orderNumber,
+        customerEmail: orderInfo.user_email,
+        customerName: orderInfo.user_name,
+        edition: edition,
+        duration: duration,
+        expiryDate: expiryDate,
+        productName: productName
+      }
+    }
+  } catch (error: any) {
+    console.error('WordPress订单验证失败:', error)
+    
+    if (error.statusCode) {
+      throw error
+    }
+    
+    return {
+      valid: false,
+      message: `验证失败: ${error.message}`
+    }
+  }
+})

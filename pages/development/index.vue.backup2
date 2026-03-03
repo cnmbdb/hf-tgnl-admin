@@ -1,0 +1,435 @@
+<template>
+  <div class="space-y-6">
+    <!-- 页面标题 -->
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+          <div class="w-8 h-8 bg-[#1a1a1b] border border-[#2a2a2b] rounded-lg flex items-center justify-center">
+            <UIcon name="i-heroicons-key" class="w-5 h-5 text-[#00dc82]" />
+          </div>
+          授权管理
+        </h1>
+        <p class="mt-1 text-sm text-[#9ca3af]">管理许可证授权和服务器IP绑定</p>
+      </div>
+      <UButton 
+        @click="refreshLicenseInfo"
+        :loading="loading"
+        variant="outline"
+      >
+        <UIcon name="i-heroicons-arrow-path" class="w-4 h-4 mr-2" />
+        刷新状态
+      </UButton>
+    </div>
+
+    <!-- 系统状态概览 -->
+    <div class="bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl p-6">
+      <h2 class="text-xl font-semibold text-white mb-4 flex items-center">
+        <UIcon name="i-heroicons-signal" class="w-5 h-5 mr-3 text-[#00dc82]" />
+        系统状态概览
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl flex items-center justify-center mx-auto">
+            <UIcon name="i-heroicons-server" class="w-6 h-6 text-[#00dc82]" />
+          </div>
+          <div class="text-lg font-semibold text-white">{{ systemStatus.serverStatus }}</div>
+          <div class="text-sm text-[#00dc82]">服务器状态</div>
+          <div class="text-xs text-[#9ca3af]">运行时间: {{ systemStatus.uptime }}</div>
+        </div>
+        
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl flex items-center justify-center mx-auto">
+            <UIcon name="i-heroicons-cpu-chip" class="w-6 h-6 text-blue-400" />
+          </div>
+          <div class="text-lg font-semibold text-white">{{ systemStatus.cpuUsage }}%</div>
+          <div class="text-sm text-blue-400">CPU 使用率</div>
+          <div class="text-xs text-[#9ca3af]">平均负载: {{ systemStatus.loadAverage }}</div>
+        </div>
+        
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl flex items-center justify-center mx-auto">
+            <UIcon name="i-heroicons-circle-stack" class="w-6 h-6 text-purple-400" />
+          </div>
+          <div class="text-lg font-semibold text-white">{{ systemStatus.memoryUsage }}%</div>
+          <div class="text-sm text-purple-400">内存使用率</div>
+          <div class="text-xs text-[#9ca3af]">可用: {{ systemStatus.availableMemory }}GB</div>
+        </div>
+        
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl flex items-center justify-center mx-auto">
+            <UIcon name="i-heroicons-hard-drive" class="w-6 h-6 text-orange-400" />
+          </div>
+          <div class="text-lg font-semibold text-white">{{ systemStatus.diskUsage }}%</div>
+          <div class="text-sm text-orange-400">磁盘使用率</div>
+          <div class="text-xs text-[#9ca3af]">可用: {{ systemStatus.availableDisk }}GB</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 系统配置 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- 基础设置 -->
+      <div class="bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+          <UIcon name="i-heroicons-adjustments-horizontal" class="w-5 h-5 mr-3 text-[#00dc82]" />
+          基础设置
+        </h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">系统名称</div>
+              <div class="text-sm text-[#9ca3af]">{{ settings.systemName }}</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editSystemName">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">系统版本</div>
+              <div class="text-sm text-[#9ca3af]">{{ settings.version }}</div>
+            </div>
+            <UBadge color="green" variant="subtle">最新</UBadge>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">时区设置</div>
+              <div class="text-sm text-[#9ca3af]">{{ settings.timezone }}</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editTimezone">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">语言设置</div>
+              <div class="text-sm text-[#9ca3af]">{{ settings.language }}</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editLanguage">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+        </div>
+      </div>
+
+      <!-- 安全设置 -->
+      <div class="bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+          <UIcon name="i-heroicons-shield-check" class="w-5 h-5 mr-3 text-[#00dc82]" />
+          安全设置
+        </h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">双因素认证</div>
+              <div class="text-sm text-[#9ca3af]">增强账户安全性</div>
+            </div>
+            <UToggle v-model="security.twoFactorAuth" />
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">自动登出</div>
+              <div class="text-sm text-[#9ca3af]">{{ security.autoLogout }} 分钟后自动登出</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editAutoLogout">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">IP 白名单</div>
+              <div class="text-sm text-[#9ca3af]">限制访问IP地址</div>
+            </div>
+            <UToggle v-model="security.ipWhitelist" />
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">API 访问限制</div>
+              <div class="text-sm text-[#9ca3af]">{{ security.apiRateLimit }} 请求/分钟</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editApiRateLimit">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据库设置 -->
+    <div class="bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl p-6">
+      <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+        <UIcon name="i-heroicons-circle-stack" class="w-5 h-5 mr-3 text-[#00dc82]" />
+        数据库设置
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="space-y-2">
+          <div class="text-white font-medium">连接状态</div>
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 bg-[#00dc82] rounded-full"></div>
+            <span class="text-sm text-[#00dc82]">已连接</span>
+          </div>
+          <div class="text-xs text-[#9ca3af]">延迟: {{ database.latency }}ms</div>
+        </div>
+        
+        <div class="space-y-2">
+          <div class="text-white font-medium">数据库大小</div>
+          <div class="text-lg font-semibold text-white">{{ database.size }}</div>
+          <div class="text-xs text-[#9ca3af]">表数量: {{ database.tableCount }}</div>
+        </div>
+        
+        <div class="space-y-2">
+          <div class="text-white font-medium">备份状态</div>
+          <div class="text-sm text-blue-400">{{ database.lastBackup }}</div>
+          <div class="text-xs text-[#9ca3af]">自动备份: {{ database.autoBackup ? '已启用' : '已禁用' }}</div>
+        </div>
+      </div>
+      
+      <div class="mt-6 flex space-x-4">
+        <UButton @click="testConnection" :loading="testing">
+          <UIcon name="i-heroicons-signal" class="w-4 h-4 mr-2" />
+          测试连接
+        </UButton>
+        <UButton variant="outline" @click="createBackup" :loading="backing">
+          <UIcon name="i-heroicons-archive-box" class="w-4 h-4 mr-2" />
+          创建备份
+        </UButton>
+        <UButton variant="outline" @click="optimizeDatabase" :loading="optimizing">
+          <UIcon name="i-heroicons-wrench-screwdriver" class="w-4 h-4 mr-2" />
+          优化数据库
+        </UButton>
+      </div>
+    </div>
+
+    <!-- 日志设置 -->
+    <div class="bg-[#1a1a1b] border border-[#2a2a2b] rounded-xl p-6">
+      <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+        <UIcon name="i-heroicons-document-text" class="w-5 h-5 mr-3 text-[#00dc82]" />
+        日志设置
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">日志级别</div>
+              <div class="text-sm text-[#9ca3af]">{{ logs.level }}</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editLogLevel">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">日志保留期</div>
+              <div class="text-sm text-[#9ca3af]">{{ logs.retention }} 天</div>
+            </div>
+            <UButton variant="outline" size="sm" @click="editLogRetention">
+              <UIcon name="i-heroicons-pencil" class="w-4 h-4" />
+            </UButton>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">错误日志</div>
+              <div class="text-sm text-[#9ca3af]">记录系统错误</div>
+            </div>
+            <UToggle v-model="logs.errorLogging" />
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-white font-medium">访问日志</div>
+              <div class="text-sm text-[#9ca3af]">记录用户访问</div>
+            </div>
+            <UToggle v-model="logs.accessLogging" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-6 flex space-x-4">
+        <UButton @click="viewLogs">
+          <UIcon name="i-heroicons-eye" class="w-4 h-4 mr-2" />
+          查看日志
+        </UButton>
+        <UButton variant="outline" @click="clearLogs">
+          <UIcon name="i-heroicons-trash" class="w-4 h-4 mr-2" />
+          清空日志
+        </UButton>
+        <UButton variant="outline" @click="downloadLogs">
+          <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+          下载日志
+        </UButton>
+      </div>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="flex justify-center space-x-4">
+      <UButton @click="saveSettings" :loading="saving" size="lg">
+        <UIcon name="i-heroicons-check" class="w-5 h-5 mr-2" />
+        保存设置
+      </UButton>
+      <UButton variant="outline" @click="resetSettings" size="lg">
+        <UIcon name="i-heroicons-arrow-path" class="w-5 h-5 mr-2" />
+        重置设置
+      </UButton>
+    </div>
+  </div>
+</template>
+
+<script setup>
+// 页面元数据
+definePageMeta({
+  title: '系统设置',
+  description: '管理系统配置、安全设置和应用程序参数'
+})
+
+// 响应式数据
+const systemStatus = ref({
+  serverStatus: '正常运行',
+  uptime: '15天 8小时',
+  cpuUsage: 23,
+  loadAverage: '0.8',
+  memoryUsage: 67,
+  availableMemory: '4.2',
+  diskUsage: 45,
+  availableDisk: '128'
+})
+
+const settings = ref({
+  systemName: 'TG Pro Admin',
+  version: 'v1.2.3',
+  timezone: 'Asia/Shanghai (UTC+8)',
+  language: '简体中文'
+})
+
+const security = ref({
+  twoFactorAuth: true,
+  autoLogout: 30,
+  ipWhitelist: false,
+  apiRateLimit: 1000
+})
+
+const database = ref({
+  latency: 12,
+  size: '2.3GB',
+  tableCount: 15,
+  lastBackup: '2小时前',
+  autoBackup: true
+})
+
+const logs = ref({
+  level: 'INFO',
+  retention: 30,
+  errorLogging: true,
+  accessLogging: true
+})
+
+// 加载状态
+const testing = ref(false)
+const backing = ref(false)
+const optimizing = ref(false)
+const saving = ref(false)
+
+// 方法
+const editSystemName = () => {
+  // 编辑系统名称逻辑
+}
+
+const editTimezone = () => {
+  // 编辑时区逻辑
+}
+
+const editLanguage = () => {
+  // 编辑语言逻辑
+}
+
+const editAutoLogout = () => {
+  // 编辑自动登出时间逻辑
+}
+
+const editApiRateLimit = () => {
+  // 编辑API限制逻辑
+}
+
+const editLogLevel = () => {
+  // 编辑日志级别逻辑
+}
+
+const editLogRetention = () => {
+  // 编辑日志保留期逻辑
+}
+
+const testConnection = async () => {
+  testing.value = true
+  try {
+    // 测试数据库连接逻辑
+    await new Promise(resolve => setTimeout(resolve, 2000))
+  } finally {
+    testing.value = false
+  }
+}
+
+const createBackup = async () => {
+  backing.value = true
+  try {
+    // 创建备份逻辑
+    await new Promise(resolve => setTimeout(resolve, 3000))
+  } finally {
+    backing.value = false
+  }
+}
+
+const optimizeDatabase = async () => {
+  optimizing.value = true
+  try {
+    // 优化数据库逻辑
+    await new Promise(resolve => setTimeout(resolve, 5000))
+  } finally {
+    optimizing.value = false
+  }
+}
+
+const viewLogs = () => {
+  // 查看日志逻辑
+}
+
+const clearLogs = () => {
+  // 清空日志逻辑
+}
+
+const downloadLogs = () => {
+  // 下载日志逻辑
+}
+
+const saveSettings = async () => {
+  saving.value = true
+  try {
+    // 保存设置逻辑
+    await new Promise(resolve => setTimeout(resolve, 2000))
+  } finally {
+    saving.value = false
+  }
+}
+
+const resetSettings = () => {
+  // 重置设置逻辑
+}
+
+// 生命周期
+onMounted(() => {
+  // 初始化数据
+})
+</script>
