@@ -1,0 +1,45 @@
+{
+  "name": "tgpro-admin",
+  "version": "1.0.1",
+  "description": "Telegram Bot Admin Dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "WRITE_ENV_ONLY=1 node scripts/preview-random.mjs",
+    "build": "nuxt build",
+    "lint": "eslint .",
+    "typecheck": "nuxi typecheck",
+    "test": "npm run build",
+    "dev": "WRITE_ENV_ONLY=1 node scripts/preview-random.mjs && PORT=$(grep -E '^PORT=' .env | cut -d= -f2) APP_BASE_PATH=$(grep -E '^APP_BASE_PATH=' .env | cut -d= -f2) NUXT_TELEMETRY_DISABLED=1 NUXT_HOST=localhost NUXT_PORT=$PORT NITRO_PORT=$PORT NODE_OPTIONS=--max-old-space-size=3072 ./node_modules/.bin/nuxt dev --host localhost --port $PORT",
+    "dev:silent": "WRITE_ENV_ONLY=1 node scripts/preview-random.mjs >/dev/null 2>&1 && PORT=$(grep -E '^PORT=' .env | cut -d= -f2) APP_BASE_PATH=$(grep -E '^APP_BASE_PATH=' .env | cut -d= -f2) NUXT_TELEMETRY_DISABLED=1 NUXT_HOST=localhost NUXT_PORT=$PORT NITRO_PORT=$PORT NODE_OPTIONS=--max-old-space-size=3072 ./node_modules/.bin/nuxt dev --host localhost --port $PORT",
+    "dev:clean": "rm -rf .nuxt node_modules/.cache && WRITE_ENV_ONLY=1 node scripts/preview-random.mjs && PORT=$(grep -E '^PORT=' .env | cut -d= -f2) APP_BASE_PATH=$(grep -E '^APP_BASE_PATH=' .env | cut -d= -f2) NUXT_TELEMETRY_DISABLED=1 NUXT_HOST=localhost NUXT_PORT=$PORT NITRO_PORT=$PORT NODE_OPTIONS=--max-old-space-size=3072 ./node_modules/.bin/nuxt dev --host localhost --port $PORT",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "preview:random": "node scripts/preview-random.mjs",
+    "start:env": "node scripts/start-env.mjs"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/ui": "^2.11.1",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "vue-eslint-parser": "^9.4.0",
+    "nuxt": "3.11.2",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@nuxtjs/tailwindcss": "^6.8.4",
+    "@pinia/nuxt": "^0.5.1",
+    "chart.js": "^4.4.0",
+    "mysql2": "^3.6.5",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.8",
+    "vue-chartjs": "^5.2.0",
+    "vue-router": "^4.2.5"
+  }
+}

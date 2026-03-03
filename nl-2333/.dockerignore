@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Logs
+*.log
+logs/
+bot.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Text data files (will be mounted at runtime)
+*.txt
+!requirements.txt
+!start.txt
+
+# Backup
+*.bak
+*.tmp

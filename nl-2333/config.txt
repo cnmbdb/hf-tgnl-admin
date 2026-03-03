@@ -4,19 +4,17 @@ bot_id=https://t.me/HFTGNLTRXbot
 group_link=https://t.me/hgsbhb
 control_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
 privateKey=23333344444
-username=api_fd141017
-password=pw_78ccaea69ce86ad448ced2e3
+username=
+password=
 ad_time=940
 huilv_zhekou=0.90
 admin_id=825512163
 hour_price=1
 day_price=9.0
 three_day_price=7.0
-# yucun_price 已废弃，保留注释避免旧脚本引用
-# yucun_price=10
 # 能量池系统地址（服务器环境）
 # 如果两个系统在同一服务器，可以使用 https://tgnl-home.hfz.pw
-energy_pool_api=http://host.docker.internal:3456
+energy_pool_api=https://tgnl-home.hfz.pw
 
 # 机器人通知地址（服务器环境）
 # 如果两个系统在同一服务器，使用 localhost 或服务器内网 IP
@@ -26,7 +24,6 @@ Versionidentifier=APP_VERSION
 
 # 主键盘菜单配置（JSON格式，9个按钮的布局，按行组织）
 # key 固定不变（用于代码逻辑），label 可修改（显示文案）
-# 已下线「预存扣费」功能，菜单中移除对应按钮
 main_menu_buttons_json=[[{"key":"bishu","label":"📦 笔数套餐","chain_id":1}],[{"key":"usdt2trx","label":"✅ USDT转TRX","chain_id":3}],[{"key":"check_tx","label":"🔍 查交易","chain_id":4},{"key":"trx2energy","label":"⚡ TRX转能量","chain_id":5}],[{"key":"monitored_addresses","label":"📍 已监听地址","chain_id":6},{"key":"toggle_monitor","label":"🔔 开始/结束监听","chain_id":7}],[{"key":"recharge","label":"💳 我要充值","chain_id":8},{"key":"profile","label":"👤 个人中心","chain_id":9}]]
 usdt2trx_private_key=23333344444
 

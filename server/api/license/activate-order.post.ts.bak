@@ -1,0 +1,272 @@
+import { executeQuery } from '../../utils/database'
+
+/**
+ * 从WordPress REST API获取订单信息
+ */
+async function getWordPressOrder(orderNumber: string, productId: number) {
+  const config = useRuntimeConfig()
+  const wpUrl = config.WORDPRESS_URL as string
+  const username = config.WORDPRESS_USERNAME as string
+  const appPassword = config.WORDPRESS_APP_PASSWORD as string
+
+  try {
+    // 使用子比主题API查询订单
+    const auth = Buffer.from(`${username}:${appPassword}`).toString('base64')
+    const response = await $fetch(`${wpUrl}/wp-json/zibll/v1/order/${orderNumber}`, {
+      headers: {
+        'Authorization': `Basic ${auth}`,
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log('[WordPress API] 订单查询成功:', response)
+
+    // 验证订单状态和商品ID
+    const order = response as any
+    if (order.pay_status !== '1') {
+      throw new Error('订单未支付')
+    }
+
+    if (parseInt(order.product_id) !== productId) {
+      throw new Error(`商品ID不匹配，期望${productId}，实际${order.product_id}`)
+    }
+
+    return order
+  } catch (error: any) {
+    console.error('[WordPress API] 订单查询失败:', error)
+    throw error
+  }
+}
+
+/**
+ * 验证当前服务器IP是否已在WordPress用户资料中授权
+ */
+async function verifyServerIP(orderNumber: string): Promise<boolean> {
+  const config = useRuntimeConfig()
+  const wpUrl = config.WORDPRESS_URL as string
+  const username = config.WORDPRESS_USERNAME as string
+  const appPassword = config.WORDPRESS_APP_PASSWORD as string
+  const serverIP = config.SERVER_IP as string || 'localhost'
+
+  console.log('[IP验证] 验证服务器IP:', serverIP)
+
+  try {
+    const auth = Buffer.from(`${username}:${appPassword}`).toString('base64')
+    const response = await $fetch(`${wpUrl}/wp-json/zibll/v1/verify-server`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${auth}`,
+        'Content-Type': 'application/json'
+      },
+      body: {
+        order_num: orderNumber,
+        server_ip: serverIP
+      }
+    })
+
+    console.log('[IP验证] WordPress响应:', response)
+    const result = response as any
+    return result.status === 'success'
+  } catch (error: any) {
+    console.error('[IP验证] 验证失败:', error)
+    return false
+  }
+}
+
+export default defineEventHandler(async (event) => {
+  try {
+    const body = await readBody(event)
+    const { orderNumber } = body
+
+    console.log('[订单激活] 开始激活订单:', orderNumber)
+
+    if (!orderNumber) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: '订单号不能为空'
+      })
+    }
+
+    // 第一步: 验证订单是否存在且已支付
+    const config = useRuntimeConfig()
+    const productId = parseInt((config.WORDPRESS_PRODUCT_ID as string) || '2061')
+    
+    console.log('[激活] 正在查询订单:', orderNumber, '商品ID:', productId)
+    const orderInfo = await getWordPressOrder(orderNumber, productId)
+
+    if (!orderInfo) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: '订单不存在或验证失败'
+      })
+    }
+
+    console.log('[激活] 订单验证成功:', orderInfo)
+
+    // 第二步: 验证当前服务器IP是否在WordPress用户资料的授权列表中
+    const ipAuthorized = await verifyServerIP(orderNumber)
+    
+    if (!ipAuthorized) {
+      throw createError({
+        statusCode: 403,
+        statusMessage: '当前服务器IP未授权。请在WordPress个人资料页面的"网站"字段中添加此服务器IP(最多4个)'
+      })
+    }
+
+    console.log('[激活] 服务器IP验证通过')
+
+    // 第三步: 检查订单号是否已经激活
+    const existingLicense = await executeQuery(
+      'SELECT * FROM licenses WHERE order_number = ?',
+      [orderNumber]
+    ) as any[]
+
+    if (existingLicense.length > 0) {
+      console.log('[激活] 订单已激活,返回现有授权信息')
+      const license = existingLicense[0]
+      let productInfo: any = {}
+      try {
+        productInfo = typeof license.product_info === 'string' 
+          ? JSON.parse(license.product_info) 
+          : (license.product_info || {})
+      } catch (e) {
+        productInfo = {}
+      }
+      
+      return {
+        success: true,
+        message: '订单已激活,当前服务器IP已授权',
+        license: {
+          id: license.order_id,
+          orderNumber: license.order_number,
+          edition: productInfo.edition || '标准版',
+          expiryDate: license.expiry_date,
+          activatedAt: license.activated_at
+        }
+      }
+    }
+
+    // 第四步: 保存授权记录到数据库
+    const productName = orderInfo.product_name || ''
+    const duration = getProductDuration(productName)
+    const payTime = orderInfo.pay_time || new Date().toISOString()
+    const expiryDate = calculateExpiryDate(payTime, duration)
+    const edition = getEditionFromProduct(productName)
+    const serverIP = config.SERVER_IP as string || 'localhost'
+
+    await executeQuery(
+      `INSERT INTO licenses (
+        order_number, 
+        order_id, 
+        email, 
+        customer_name, 
+        product_info,
+        license_type,
+        expiry_date, 
+        activated_at,
+        status
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'active')`,
+      [
+        orderNumber,
+        orderInfo.order_id,
+        orderInfo.user_email,
+        orderInfo.user_name,
+        JSON.stringify({
+          product_name: orderInfo.product_name,
+          edition: edition,
+          duration_days: duration,
+          price: orderInfo.pay_price
+        }),
+        duration >= 365 ? 'yearly' : 'monthly',
+        expiryDate,
+        payTime
+      ]
+    )
+
+    // 记录授权历史
+    await executeQuery(
+      `INSERT INTO license_history (
+        order_number,
+        action,
+        server_ip,
+        details,
+        created_at
+      ) VALUES (?, 'activate', ?, ?, NOW())`,
+      [
+        orderNumber,
+        serverIP,
+        `WordPress订单 #${orderInfo.order_id} 激活成功，服务器IP: ${serverIP}`
+      ]
+    )
+
+    console.log('[激活] 授权激活成功')
+
+    return {
+      success: true,
+      message: '授权激活成功',
+      license: {
+        id: orderInfo.order_id,
+        orderNumber: orderNumber,
+        edition: edition,
+        expiryDate: expiryDate,
+        activatedAt: new Date().toISOString(),
+        serverIP: serverIP
+      }
+    }
+  } catch (error: any) {
+    console.error('订单激活失败:', error)
+    
+    if (error.statusCode) {
+      throw error
+    }
+    
+    throw createError({
+      statusCode: 500,
+      statusMessage: '激活失败: ' + error.message
+    })
+  }
+})
+
+/**
+ * 从商品名称中获取授权时长
+ */
+function getProductDuration(productName: string): number {
+  if (productName.includes('月')) {
+    const match = productName.match(/(\d+)个?月/)
+    if (match) {
+      return parseInt(match[1]) * 30
+    }
+  }
+  if (productName.includes('年')) {
+    const match = productName.match(/(\d+)年/)
+    if (match) {
+      return parseInt(match[1]) * 365
+    }
+  }
+  return 365 // 默认1年
+}
+
+/**
+ * 计算到期日期
+ */
+function calculateExpiryDate(startDate: string, durationDays: number): string {
+  const start = new Date(startDate)
+  const expiry = new Date(start.getTime() + durationDays * 24 * 60 * 60 * 1000)
+  return expiry.toISOString().split('T')[0]
+}
+
+/**
+ * 从商品名称中获取版本信息
+ */
+function getEditionFromProduct(productName: string): string {
+  if (productName.includes('企业版') || productName.includes('Enterprise')) {
+    return '企业版'
+  }
+  if (productName.includes('专业版') || productName.includes('Professional')) {
+    return '专业版'
+  }
+  if (productName.includes('基础版') || productName.includes('Basic')) {
+    return '基础版'
+  }
+  return '标准版'
+}

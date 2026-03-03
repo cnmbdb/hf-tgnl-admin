@@ -1,0 +1,14 @@
+{
+  "name": "nlbot-vitepress",
+  "version": "1.0.0",
+  "description": "TGNL Admin 项目文档",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
