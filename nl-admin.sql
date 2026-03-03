@@ -180,7 +180,7 @@ CREATE TABLE `system_users` (
 
 LOCK TABLES `system_users` WRITE;
 /*!40000 ALTER TABLE `system_users` DISABLE KEYS */;
-INSERT INTO `system_users` VALUES (1,'admin','a72947564b5c00efc478897fd6dcd15f:2fcec970aeb0da22c016e7d03465e88b7f1f196764558336ac6c492b7b8208246154eba7d240a764e09f60f67fdf8983422a1db86a4e07329de5c43a9f690c0f','admin@example.com','admin','active','2025-11-21 01:08:59','2025-11-06 13:27:35','2025-11-24 01:24:48');
+INSERT INTO `system_users` VALUES (1,'admin','e4bc385e124d61823445cbd9720c82cd:98308327583cb8e20cd7eb547428e5f20aabe7bacafd1c631a9089307fbdcd156c045fae09f7adf79c825e05bf872eadae89e192111e9db0f533047c11911fd6','admin@example.com','admin','active','2025-11-21 01:08:59','2025-11-06 13:27:35','2025-11-24 01:24:48');
 /*!40000 ALTER TABLE `system_users` ENABLE KEYS */;
 UNLOCK TABLES;
 

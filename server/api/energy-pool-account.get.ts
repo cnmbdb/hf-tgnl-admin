@@ -36,14 +36,10 @@ export default defineEventHandler(async () => {
       }
     }
 
-    const url = `${energyPoolApi}/v1/get_api_user_info?username=${encodeURIComponent(username)}`
-    const auth = Buffer.from(`${username}:${password}`).toString('base64')
+    // 按能量池实际实现：使用 username/password 作为 query 参数鉴权
+    const url = `${energyPoolApi}/v1/get_api_user_info?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
 
-    const resp = await fetch(url, {
-      headers: {
-        Authorization: `Basic ${auth}`
-      }
-    })
+    const resp = await fetch(url, { method: 'GET' })
 
     if (!resp.ok) {
       const text = await resp.text().catch(() => '')
@@ -56,12 +52,15 @@ export default defineEventHandler(async () => {
 
     const data = await resp.json().catch(() => ({} as any))
 
-    const balanceTrx =
-      typeof data.balance_trx === 'number'
-        ? data.balance_trx
-        : typeof data.balance === 'number'
-          ? data.balance
-          : null
+    // 兼容能量池当前实现：返回中文字段「当前余额(TRX)」
+    let balanceTrx: number | null = null
+    if (typeof (data as any)['当前余额(TRX)'] === 'number') {
+      balanceTrx = (data as any)['当前余额(TRX)']
+    } else if (typeof (data as any).balance_trx === 'number') {
+      balanceTrx = (data as any).balance_trx
+    } else if (typeof (data as any).balance === 'number') {
+      balanceTrx = (data as any).balance
+    }
 
     return {
       success: true,
