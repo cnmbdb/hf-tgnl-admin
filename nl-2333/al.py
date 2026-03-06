@@ -548,6 +548,54 @@ def load_main_menu_config(config: dict):
         label_to_key = {}
         label_to_chain_id = {}
 
+def sync_bot_config():
+    """同步机器人配置到能量池系统"""
+    try:
+        config_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.txt')
+        with open(config_file_path, 'r', encoding='utf-8') as f:
+            config_content = f.read()
+
+        # 发送配置到能量池系统（包含通知地址）
+        # 使用 config.txt 中配置的 bot_notify_url（如果已配置），否则使用默认值
+        # 注意：bot_notify_url 必须指向「机器人自己的 HTTP 服务」，而不是能量池
+        if 'bot_notify_url' not in globals() or not bot_notify_url:
+            # 如果全局变量未初始化，从 config.txt 读取或使用默认值
+            config_dict = read_config('config.txt')
+            if 'bot_notify_url' in config_dict and config_dict['bot_notify_url'].strip():
+                notify_url_to_send = config_dict['bot_notify_url'].strip()
+            else:
+                notify_port = int(os.getenv('NOTIFY_SERVER_PORT', '8080'))
+                notify_url_to_send = f'http://host.docker.internal:{notify_port}/api/recharge-notify'
+        else:
+            notify_url_to_send = bot_notify_url
+
+        # 确保 bot_username 不为空
+        if not bot_username:
+            logging.error(f"[同步配置] 错误：bot_username 为空！")
+            return
+
+        payload = {
+            'botUsername': bot_username,
+            'apiUsername': username,
+            'configContent': config_content,
+            'botNotifyUrl': notify_url_to_send,
+        }
+
+        logging.info(f"[同步配置] 发送配置到能量池: botUsername={bot_username}, apiUsername={username}, botNotifyUrl={notify_url_to_send}")
+
+        energy_pool_base = (energy_pool_api or '').rstrip('/')
+        config_resp = requests.post(
+            f'{energy_pool_base}/api/bots/config' if energy_pool_base else f'{energy_pool_api}/api/bots/config',
+            json=payload,
+            timeout=10
+        )
+        if config_resp.status_code == 200:
+            logging.info(f"配置已同步到能量池系统")
+        else:
+            logging.warning(f"同步配置失败: {config_resp.status_code}, 响应: {config_resp.text}")
+    except Exception as config_error:
+        logging.warning(f"同步配置异常: {config_error}")
+
 def reload_config():
     """重新加载配置文件"""
     global CUSTOMER_SERVICE_ID, bot_id, group_link, control_address, privateKey, username, password
@@ -644,6 +692,12 @@ def reload_config():
         message = f"\n`{control_address}`\n"
         
         logging.info("配置文件重新加载成功")
+        
+        # 同步配置到能量池系统（确保 botNotifyUrl 等配置是最新的）
+        try:
+            sync_bot_config()
+        except Exception as sync_err:
+            logging.warning(f"重载配置后同步到能量池失败: {sync_err}")
         
         # 发送通知给管理员（如果bot已初始化）
         if 'bot' in globals() and bot and admin_id:
@@ -2523,6 +2577,8 @@ def handle_message(update: Update, context: CallbackContext):
                     admin_info = resp.json()
                     if 'error' in admin_info:
                         update.message.reply_text(admin_info['error'])
+                        # 即使API账户查询失败，也尝试同步配置（确保通知地址是最新的）
+                        sync_bot_config()
                     else:
                         # 保存API用户名到context，供后续充值使用
                         api_username_from_info = admin_info.get('用户名') or username
@@ -2534,46 +2590,9 @@ def handle_message(update: Update, context: CallbackContext):
                         sent_message = update.message.reply_text(admin_info_str, reply_markup=reply_markup)
                         # 保存机器人回复的消息ID
                         context.user_data['recharge_message_id'] = sent_message.message_id
-                        
-                        # 发送 config.txt 内容到能量池系统
-                        try:
-                            config_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.txt')
-                            with open(config_file_path, 'r', encoding='utf-8') as f:
-                                config_content = f.read()
 
-                            # 发送配置到能量池系统（包含通知地址）
-                            # 使用 config.txt 中配置的 bot_notify_url（如果已配置），否则使用默认值
-                            # 注意：bot_notify_url 必须指向「机器人自己的 HTTP 服务」，而不是能量池
-                            if 'bot_notify_url' not in globals() or not bot_notify_url:
-                                # 如果全局变量未初始化，从 config.txt 读取或使用默认值
-                                config_dict = read_config('config.txt')
-                                if 'bot_notify_url' in config_dict and config_dict['bot_notify_url'].strip():
-                                    notify_url_to_send = config_dict['bot_notify_url'].strip()
-                                else:
-                                    notify_port = int(os.getenv('NOTIFY_SERVER_PORT', '8080'))
-                                    notify_url_to_send = f'http://host.docker.internal:{notify_port}/api/recharge-notify'
-                            else:
-                                notify_url_to_send = bot_notify_url
-
-                            payload = {
-                                'botUsername': bot_username,
-                                'apiUsername': username,
-                                'configContent': config_content,
-                                'botNotifyUrl': notify_url_to_send,
-                            }
-
-                            energy_pool_base = (energy_pool_api or '').rstrip('/')
-                            config_resp = requests.post(
-                                f'{energy_pool_base}/api/bots/config' if energy_pool_base else f'{energy_pool_api}/api/bots/config',
-                                json=payload,
-                                timeout=10
-                            )
-                            if config_resp.status_code == 200:
-                                logging.info(f"配置已同步到能量池系统")
-                            else:
-                                logging.warning(f"同步配置失败: {config_resp.status_code}")
-                        except Exception as config_error:
-                            logging.warning(f"同步配置异常: {config_error}")
+                        # 同步配置到能量池系统
+                        sync_bot_config()
                 except requests.exceptions.JSONDecodeError as json_err:
                     logging.error(f"JSON解析错误: {json_err}, 响应内容: {text[:200] if 'text' in locals() else 'N/A'}")
                     update.message.reply_text(f"查询失败：接口返回不是有效的JSON。内容: {text[:200] if 'text' in locals() else 'N/A'}")
@@ -4958,6 +4977,12 @@ def main():
     config_file_path = os.path.abspath('config.txt')
     start_config_watcher(config_file_path, reload_config)
     logging.info("配置文件热重载功能已启用")
+    
+    # 同步配置到能量池系统（确保 botNotifyUrl 等配置是最新的）
+    try:
+        sync_bot_config()
+    except Exception as sync_err:
+        logging.warning(f"启动时同步配置到能量池失败: {sync_err}")
     
     # 初始化加载键盘配置
     load_main_menu_config(config)

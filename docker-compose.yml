@@ -99,9 +99,12 @@ services:
       - "host.docker.internal:host-gateway"
     # Webhook 端口映射（如果使用 Webhook 模式）
     ports:
-      # 安全：默认仅本机可访问；如果你用 Nginx 反代到 bot，请保持 localhost 绑定即可
+      # 充值通知服务器端口 - 需要对外暴露以便能量池回调
+      - "0.0.0.0:8080:8080"
       - "${BIND_IP:-127.0.0.1}:${BOT_WEBHOOK_PORT:-8443}:${BOT_WEBHOOK_PORT:-8443}"
-      - "${BIND_IP:-127.0.0.1}:8080:8080"  # 充值通知服务器端口
+    networks:
+      - default
+      - tgnl_home_default
     restart: unless-stopped
     depends_on:
       app:
@@ -111,3 +114,12 @@ services:
 
 volumes:
   db_data:
+    external: true
+    name: tgnl-admin_db_data
+
+networks:
+  default:
+    name: tgnl-admin_default
+  tgnl_home_default:
+    external: true
+    name: tgnl-home_default

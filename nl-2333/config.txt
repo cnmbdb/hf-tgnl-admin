@@ -4,8 +4,8 @@ bot_id=https://t.me/HFTGNLTRXbot
 group_link=https://t.me/hgsbhb
 control_address=TKYp9dbDs6kHKtFhFR6srEJvDARNYkq9Qe
 privateKey=23333344444
-username=api_6216ae2d
-password=pw_1201d09cead039739c07b6eb
+username=api_e27ca5b3
+password=Apple1111
 ad_time=940
 huilv_zhekou=0.90
 admin_id=825512163
@@ -13,13 +13,13 @@ hour_price=1
 day_price=3
 three_day_price=3
 # 能量池系统地址（服务器环境）
-# 如果两个系统在同一服务器，可以使用 https://tgnl-home.hfz.pw
-energy_pool_api=https://tgnl-home.hfz.pw
+# 如果两个系统在同一服务器，可以使用 http://web:3000 (容器内网) 或 http://127.0.0.1:8888 (宿主机)
+energy_pool_api=http://web:3000
 
 # 机器人通知地址（服务器环境）
 # 如果两个系统在同一服务器，使用 localhost 或服务器内网 IP
 # 部署到服务器后，需要根据实际情况修改此地址
-bot_notify_url=http://155.254.105.8:8080/api/recharge-notify
+bot_notify_url=http://tgnl-admin-bot:8080/api/recharge-notify
 Versionidentifier=APP_VERSION
 
 # 主键盘菜单配置（JSON格式，9个按钮的布局，按行组织）
