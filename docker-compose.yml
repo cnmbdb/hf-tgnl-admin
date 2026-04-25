@@ -1,9 +1,7 @@
 services:
   app:
     image: ghcr.io/cnmbdb/tgnl-admin:latest
-    pull_policy: always
     container_name: ${APP_CONTAINER_NAME:-tgnl-admin-app}
-    restart: unless-stopped
     working_dir: /app
     volumes:
       - ./.env:/app/.env
@@ -13,15 +11,11 @@ services:
     env_file:
       - .env
     environment:
-      - TZ=Asia/Shanghai
+      # 容器内部固定值，不受宿主机 shell 变量干扰
       - DB_HOST=db
       - DB_PORT=3306
-      - APP_BASE_PATH=/admin
-      - NODE_ENV=production
       - HOST=0.0.0.0
       - NITRO_HOST=0.0.0.0
-      - PORT=3000
-      - NITRO_PORT=3000
     depends_on:
       db:
         condition: service_healthy
@@ -34,13 +28,12 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: ${DB_CONTAINER_NAME:-tgnl-admin-db}
+    container_name: tgnl-admin-db
     restart: unless-stopped
     env_file:
       - .env
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    # MYSQL_ROOT_PASSWORD 和 MYSQL_DATABASE 直接由 env_file 中的
+    # MYSQL_ROOT_PASSWORD / DB_NAME 注入，无需 ${} 插值
     expose:
       - "3306"
     volumes:
@@ -55,7 +48,6 @@ services:
 
   bot:
     image: ghcr.io/cnmbdb/tgnl-admin-bot:latest
-    pull_policy: always
     container_name: ${BOT_CONTAINER_NAME:-tgnl-admin-bot}
     working_dir: /app
     volumes:
@@ -65,17 +57,10 @@ services:
     env_file:
       - .env
     environment:
-      - TZ=Asia/Shanghai
+      # 容器内部固定值
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_PASSWORD=${DB_PASSWORD:-root}
-      - DB_NAME=${DB_NAME:-tgnl}
-      - PORT=3000
-      - APP_BASE_PATH=/admin
       - APP_HOST=app
-      - BOT_WEBHOOK_URL=${BOT_WEBHOOK_URL:-}
-      - BOT_WEBHOOK_PORT=${BOT_WEBHOOK_PORT:-8443}
-      - BOT_WEBHOOK_PATH=${BOT_WEBHOOK_PATH:-webhook}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
@@ -91,13 +76,10 @@ services:
   cftun:
     image: cloudflare/cloudflared:latest
     container_name: ${CFTUN_CONTAINER_NAME:-tgnl-admin-cftun}
-    restart: unless-stopped
+    restart: "no"
     command: ["tunnel", "--no-autoupdate", "run", "--token", "${CFTUN_TOKEN}"]
     env_file:
       - .env
-    environment:
-      - TUNNEL_TOKEN=${CFTUN_TOKEN:-}
-      - CFTUN_TUNNEL_ID=${CFTUN_TUNNEL_ID:-}
     depends_on:
       bot:
         condition: service_started
@@ -109,7 +91,6 @@ volumes:
 
 networks:
   default:
-    name: ${APP_CONTAINER_NAME:-tgnl-admin}_default
+    name: tgnl-admin_default
   tgnl_home_default:
     name: tgnl-home_default
-    external: true

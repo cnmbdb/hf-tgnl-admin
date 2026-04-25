@@ -1,680 +1,232 @@
-2026-04-13 02:13:42,437 - root - INFO - Webhook模式：充值通知路由已挂载到webhook server，跳过独立通知服务器
-2026-04-13 02:13:43,448 - root - INFO - 文件系统监听器（watchdog）已启动
-2026-04-13 02:13:43,457 - root - INFO - 重载标记文件监听线程已启动（永不停止）
-2026-04-13 02:13:43,460 - root - INFO - 配置文件mtime轮询线程已启动（永不停止，每秒检查一次）
-2026-04-13 02:13:43,460 - root - INFO - 检测到配置文件mtime变化: /app/config.txt
-2026-04-13 02:13:43,463 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:13:43,462 - root - INFO - 检测到重载标记文件，开始重载配置...
-2026-04-13 02:13:43,461 - root - INFO - 配置文件热重载监听器已启动（永不停止），监听: /app/config.txt
-2026-04-13 02:13:43,466 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:13:43,466 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:13:43,467 - root - INFO - 配置文件热重载功能已启用
-2026-04-13 02:13:43,468 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:43,470 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:13:43,471 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:43,470 - root - ERROR - [同步配置] 错误：bot_username 为空！
-2026-04-13 02:13:43,470 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:13:43,471 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:13:43,472 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:13:43,472 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:13:43,471 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:13:43,473 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:13:43,474 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:13:43,472 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:13:43,473 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:13:43,475 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:13:43,474 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:13:43,474 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:13:43,476 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:13:43,475 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:13:43,475 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:13:43,476 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:13:43,476 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:13:43,476 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:13:43,477 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:13:43,477 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:13:43,476 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:13:43,477 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:13:43,478 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:13:43,478 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:13:43,483 - root - INFO - 主键盘菜单配置已初始化
-2026-04-13 02:13:43,483 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:13:43,484 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:13:43,484 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:13:43,485 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:13:43,485 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:13:43,486 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:13:43,486 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:13:43,487 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:13:43,486 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:13:43,486 - root - INFO - 关键词回复配置已初始化
-2026-04-13 02:13:43,487 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:13:43,487 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:43,497 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:44,415 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:13:45,135 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:13:45,492 - root - INFO - 机器人用户名: HFTGNLTRXbot
-2026-04-13 02:13:45,621 - root - INFO - 通过mtime轮询重载配置成功
-2026-04-13 02:13:45,626 - root - INFO - 检测到关键词回复文件mtime变化: keyword_replies.json
-2026-04-13 02:13:45,626 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:13:45,630 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:13:45,630 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:45,631 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:13:45,631 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:13:45,631 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:13:45,632 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:13:45,632 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:13:45,633 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:13:45,634 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:13:45,634 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:13:45,634 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:13:45,635 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:13:45,637 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:13:45,641 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:13:45,642 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:13:45,790 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:13:45,794 - root - INFO - [返利结算] 功能已禁用（代码已注释）
-2026-04-13 02:13:45,800 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:13:45,800 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:13:45,801 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:13:45,803 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:13:45,804 - root - INFO - [Webhook健康检查] 已启用，每5分钟检查一次
-2026-04-13 02:13:45,809 - apscheduler.scheduler - INFO - Added job "scheduled_message" to job store "default"
-2026-04-13 02:13:45,809 - apscheduler.scheduler - INFO - Added job "check_bishu_orders_payment" to job store "default"
-2026-04-13 02:13:45,810 - apscheduler.scheduler - INFO - Added job "auto_manage_bishu_packages" to job store "default"
-2026-04-13 02:13:45,811 - apscheduler.scheduler - INFO - Added job "query_and_recharge" to job store "default"
-2026-04-13 02:13:45,812 - apscheduler.scheduler - INFO - Added job "webhook_health_check" to job store "default"
-2026-04-13 02:13:45,812 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:13:46,122 - root - INFO - 已清除旧的 webhook 配置
-2026-04-13 02:13:46,124 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:13:46,467 - root - INFO - Webhook 已启动: listen=0.0.0.0:8443, url=https://tgnl-admin-bot.txsw.top/webhook
-2026-04-13 02:13:46,470 - root - INFO - 充值通知路由已挂载到 webhook server (8443)
-2026-04-13 02:13:47,896 - root - INFO - 通过重载标记文件重载配置成功
-2026-04-13 02:13:48,023 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:13:48,565 - root - INFO - 通过mtime轮询重载关键词回复成功
-2026-04-13 02:14:15,818 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:14:45 CST)" (scheduled at 2026-04-13 02:14:15.801689+08:00)
-2026-04-13 02:14:15,844 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:14:45 CST)" executed successfully
-2026-04-13 02:14:45,830 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:15:15 CST)" (scheduled at 2026-04-13 02:14:45.801689+08:00)
-2026-04-13 02:14:45,833 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:15:15 CST)" executed successfully
-2026-04-13 02:15:15,820 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:15:45 CST)" (scheduled at 2026-04-13 02:15:15.801689+08:00)
-2026-04-13 02:15:15,825 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:15:45 CST)" executed successfully
-2026-04-13 02:15:45,812 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:17:45 CST)" (scheduled at 2026-04-13 02:15:45.799819+08:00)
-2026-04-13 02:15:45,813 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:16:15 CST)" (scheduled at 2026-04-13 02:15:45.801689+08:00)
-2026-04-13 02:15:45,824 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:16:15 CST)" executed successfully
-2026-04-13 02:15:46,140 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:17:45 CST)" executed successfully
-2026-04-13 02:16:15,808 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:16:45 CST)" (scheduled at 2026-04-13 02:16:15.801689+08:00)
-2026-04-13 02:16:15,812 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:16:45 CST)" executed successfully
-2026-04-13 02:16:45,825 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:17:15 CST)" (scheduled at 2026-04-13 02:16:45.801689+08:00)
-2026-04-13 02:16:45,829 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:17:15 CST)" executed successfully
-2026-04-13 02:17:10,656 - telegram.ext.updater - INFO - Received signal 15 (SIGTERM), stopping...
-2026-04-13 02:17:10,665 - apscheduler.scheduler - INFO - Scheduler has been shut down
-2026-04-13 02:17:55,435 - root - INFO - Webhook模式：充值通知路由已挂载到webhook server，跳过独立通知服务器
-2026-04-13 02:17:56,445 - root - INFO - 文件系统监听器（watchdog）已启动
-2026-04-13 02:17:56,448 - root - INFO - 重载标记文件监听线程已启动（永不停止）
-2026-04-13 02:17:56,451 - root - INFO - 检测到重载标记文件，开始重载配置...
-2026-04-13 02:17:56,452 - root - INFO - 检测到配置文件mtime变化: /app/config.txt
-2026-04-13 02:17:56,452 - root - INFO - 配置文件mtime轮询线程已启动（永不停止，每秒检查一次）
-2026-04-13 02:17:56,454 - root - INFO - 配置文件热重载监听器已启动（永不停止），监听: /app/config.txt
-2026-04-13 02:17:56,454 - root - INFO - 配置文件热重载功能已启用
-2026-04-13 02:17:56,453 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:17:56,453 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:17:56,455 - root - ERROR - [同步配置] 错误：bot_username 为空！
-2026-04-13 02:17:56,456 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:17:56,458 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:17:56,459 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:17:56,456 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:17:56,458 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:17:56,461 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:17:56,463 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:17:56,464 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:17:56,467 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:17:56,484 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:17:56,498 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:17:56,505 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:17:56,471 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:17:56,470 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:17:56,506 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:17:56,510 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:17:56,511 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:17:56,506 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:17:56,517 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:17:56,519 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:17:56,506 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:17:56,514 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:17:56,522 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:17:56,523 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:17:56,520 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:17:56,526 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:17:56,527 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:17:56,521 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:17:56,526 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:17:56,528 - root - INFO - 主键盘菜单配置已初始化
-2026-04-13 02:17:56,548 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:17:56,529 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:17:56,551 - root - INFO - 关键词回复配置已初始化
-2026-04-13 02:17:56,583 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:17:56,617 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:17:56,619 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:17:56,621 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:17:56,624 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:17:56,626 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:17:56,628 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:17:56,634 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:17:56,665 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:17:57,634 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:17:57,841 - root - INFO - 机器人用户名: HFTGNLTRXbot
-2026-04-13 02:17:58,039 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:17:58,040 - root - INFO - [返利结算] 功能已禁用（代码已注释）
-2026-04-13 02:17:58,040 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:17:58,041 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:17:58,041 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:17:58,042 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:17:58,042 - root - INFO - [Webhook健康检查] 已启用，每5分钟检查一次
-2026-04-13 02:17:58,043 - apscheduler.scheduler - INFO - Added job "scheduled_message" to job store "default"
-2026-04-13 02:17:58,043 - apscheduler.scheduler - INFO - Added job "check_bishu_orders_payment" to job store "default"
-2026-04-13 02:17:58,043 - apscheduler.scheduler - INFO - Added job "auto_manage_bishu_packages" to job store "default"
-2026-04-13 02:17:58,044 - apscheduler.scheduler - INFO - Added job "query_and_recharge" to job store "default"
-2026-04-13 02:17:58,044 - apscheduler.scheduler - INFO - Added job "webhook_health_check" to job store "default"
-2026-04-13 02:17:58,044 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:17:58,302 - root - INFO - 已清除旧的 webhook 配置
-2026-04-13 02:17:58,305 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:17:58,325 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:17:58,776 - root - INFO - Webhook 已启动: listen=0.0.0.0:8443, url=https://tgnl-admin-bot.txsw.top/webhook
-2026-04-13 02:17:58,778 - root - INFO - 充值通知路由已挂载到 webhook server (8443)
-2026-04-13 02:17:59,031 - root - INFO - 通过重载标记文件重载配置成功
-2026-04-13 02:18:02,486 - root - INFO - 通过mtime轮询重载配置成功
-2026-04-13 02:18:02,487 - root - INFO - 检测到关键词回复文件mtime变化: keyword_replies.json
-2026-04-13 02:18:02,488 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:18:02,490 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:18:02,490 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:18:02,491 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:18:02,491 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:18:02,491 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:18:02,491 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:18:02,492 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:18:02,492 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:18:02,492 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:18:02,492 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:18:02,492 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:18:02,493 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:18:02,494 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:18:02,494 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:18:02,494 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:18:03,184 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:18:04,030 - root - INFO - 通过mtime轮询重载关键词回复成功
-2026-04-13 02:18:28,061 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:18:58 CST)" (scheduled at 2026-04-13 02:18:28.041784+08:00)
-2026-04-13 02:18:28,097 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:18:58 CST)" executed successfully
-2026-04-13 02:18:59,512 - apscheduler.executors.default - WARNING - Run time of job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:19:28 CST)" was missed by 0:00:01.469284
-2026-04-13 02:19:28,738 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:19:58 CST)" (scheduled at 2026-04-13 02:19:28.041784+08:00)
-2026-04-13 02:19:28,753 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:19:58 CST)" executed successfully
-2026-04-13 02:19:58,099 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:21:58 CST)" (scheduled at 2026-04-13 02:19:58.040805+08:00)
-2026-04-13 02:19:58,099 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:20:28 CST)" (scheduled at 2026-04-13 02:19:58.041784+08:00)
-2026-04-13 02:19:58,119 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:20:28 CST)" executed successfully
-2026-04-13 02:19:58,591 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:21:58 CST)" executed successfully
-2026-04-13 02:20:28,061 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:20:58 CST)" (scheduled at 2026-04-13 02:20:28.041784+08:00)
-2026-04-13 02:20:28,066 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:20:58 CST)" executed successfully
-2026-04-13 02:20:51,872 - telegram.ext.updater - INFO - Received signal 15 (SIGTERM), stopping...
-2026-04-13 02:20:51,882 - apscheduler.scheduler - INFO - Scheduler has been shut down
-2026-04-13 02:21:45,985 - root - INFO - Webhook模式：充值通知路由已挂载到webhook server，跳过独立通知服务器
-2026-04-13 02:21:46,999 - root - INFO - 文件系统监听器（watchdog）已启动
-2026-04-13 02:21:47,001 - root - INFO - 重载标记文件监听线程已启动（永不停止）
-2026-04-13 02:21:47,002 - root - INFO - 检测到重载标记文件，开始重载配置...
-2026-04-13 02:21:47,002 - root - INFO - 检测到配置文件mtime变化: /app/config.txt
-2026-04-13 02:21:47,002 - root - INFO - 配置文件mtime轮询线程已启动（永不停止，每秒检查一次）
-2026-04-13 02:21:47,004 - root - INFO - 配置文件热重载监听器已启动（永不停止），监听: /app/config.txt
-2026-04-13 02:21:47,003 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:21:47,003 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:21:47,004 - root - INFO - 配置文件热重载功能已启用
-2026-04-13 02:21:47,005 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:21:47,006 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:21:47,007 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:47,006 - root - ERROR - [同步配置] 错误：bot_username 为空！
-2026-04-13 02:21:47,006 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:47,007 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:21:47,008 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:21:47,008 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:21:47,008 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:21:47,008 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:21:47,009 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:21:47,010 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:21:47,011 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:21:47,012 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:21:47,012 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:21:47,012 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:21:47,013 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:21:47,013 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:21:47,013 - root - INFO - 主键盘菜单配置已初始化
-2026-04-13 02:21:47,014 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:21:47,014 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:21:47,014 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:21:47,015 - root - INFO - 关键词回复配置已初始化
-2026-04-13 02:21:47,015 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:21:47,015 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:47,020 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:48,259 - root - INFO - 机器人用户名: HFTGNLTRXbot
-2026-04-13 02:21:48,320 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:21:48,376 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:21:48,376 - root - INFO - [返利结算] 功能已禁用（代码已注释）
-2026-04-13 02:21:48,376 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:21:48,377 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:21:48,377 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:21:48,377 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2026-04-13 02:21:48,377 - root - INFO - [Webhook健康检查] 已启用，每5分钟检查一次
-2026-04-13 02:21:48,378 - apscheduler.scheduler - INFO - Added job "scheduled_message" to job store "default"
-2026-04-13 02:21:48,378 - apscheduler.scheduler - INFO - Added job "check_bishu_orders_payment" to job store "default"
-2026-04-13 02:21:48,378 - apscheduler.scheduler - INFO - Added job "auto_manage_bishu_packages" to job store "default"
-2026-04-13 02:21:48,378 - apscheduler.scheduler - INFO - Added job "query_and_recharge" to job store "default"
-2026-04-13 02:21:48,378 - apscheduler.scheduler - INFO - Added job "webhook_health_check" to job store "default"
-2026-04-13 02:21:48,379 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:21:48,578 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:21:48,968 - root - INFO - 通过重载标记文件重载配置成功
-2026-04-13 02:21:50,128 - root - INFO - 通过mtime轮询重载配置成功
-2026-04-13 02:21:50,135 - root - INFO - 检测到关键词回复文件mtime变化: keyword_replies.json
-2026-04-13 02:21:50,135 - root - INFO - 开始重新加载配置文件...
-2026-04-13 02:21:50,141 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
-2026-04-13 02:21:50,141 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:50,142 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
-2026-04-13 02:21:50,142 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
-2026-04-13 02:21:50,142 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
-2026-04-13 02:21:50,142 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
-2026-04-13 02:21:50,143 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
-2026-04-13 02:21:50,143 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
-2026-04-13 02:21:50,143 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
-2026-04-13 02:21:50,143 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
-2026-04-13 02:21:50,143 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
-2026-04-13 02:21:50,144 - root - INFO - 关键词回复配置已加载
-2026-04-13 02:21:50,147 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
-2026-04-13 02:21:50,147 - root - INFO - 配置文件重新加载成功
-2026-04-13 02:21:50,148 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
-2026-04-13 02:21:50,335 - root - INFO - 已清除旧的 webhook 配置
-2026-04-13 02:21:50,340 - apscheduler.scheduler - INFO - Scheduler started
-2026-04-13 02:21:51,093 - root - INFO - Webhook 已启动: listen=0.0.0.0:8443, url=https://tgnl-admin-bot.txsw.top/webhook
-2026-04-13 02:21:51,099 - root - INFO - 充值通知路由已挂载到 webhook server (8443)
-2026-04-13 02:21:51,687 - root - INFO - 配置已同步到能量池系统
-2026-04-13 02:21:52,536 - root - INFO - 通过mtime轮询重载关键词回复成功
-2026-04-13 02:22:18,470 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:22:48 CST)" (scheduled at 2026-04-13 02:22:18.377255+08:00)
-2026-04-13 02:22:18,475 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:22:48 CST)" executed successfully
-2026-04-13 02:22:48,398 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:23:18 CST)" (scheduled at 2026-04-13 02:22:48.377255+08:00)
-2026-04-13 02:22:48,411 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:23:18 CST)" executed successfully
-2026-04-13 02:23:18,397 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:23:48 CST)" (scheduled at 2026-04-13 02:23:18.377255+08:00)
-2026-04-13 02:23:18,402 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:23:48 CST)" executed successfully
-2026-04-13 02:23:48,384 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:25:48 CST)" (scheduled at 2026-04-13 02:23:48.376848+08:00)
-2026-04-13 02:23:48,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:24:18 CST)" (scheduled at 2026-04-13 02:23:48.377255+08:00)
-2026-04-13 02:23:48,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:24:18 CST)" executed successfully
-2026-04-13 02:23:48,529 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:25:48 CST)" executed successfully
-2026-04-13 02:24:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:24:48 CST)" (scheduled at 2026-04-13 02:24:18.377255+08:00)
-2026-04-13 02:24:18,395 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:24:48 CST)" executed successfully
-2026-04-13 02:24:48,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:25:18 CST)" (scheduled at 2026-04-13 02:24:48.377255+08:00)
-2026-04-13 02:24:48,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:25:18 CST)" executed successfully
-2026-04-13 02:25:18,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:25:48 CST)" (scheduled at 2026-04-13 02:25:18.377255+08:00)
-2026-04-13 02:25:18,386 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:25:48 CST)" executed successfully
-2026-04-13 02:25:48,386 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:27:48 CST)" (scheduled at 2026-04-13 02:25:48.376848+08:00)
-2026-04-13 02:25:48,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:26:18 CST)" (scheduled at 2026-04-13 02:25:48.377255+08:00)
-2026-04-13 02:25:48,398 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:26:18 CST)" executed successfully
-2026-04-13 02:25:48,418 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:27:48 CST)" executed successfully
-2026-04-13 02:26:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:26:48 CST)" (scheduled at 2026-04-13 02:26:18.377255+08:00)
-2026-04-13 02:26:18,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:26:48 CST)" executed successfully
-2026-04-13 02:26:48,392 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 02:31:48 CST)" (scheduled at 2026-04-13 02:26:48.377066+08:00)
-2026-04-13 02:26:48,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:27:18 CST)" (scheduled at 2026-04-13 02:26:48.377255+08:00)
-2026-04-13 02:26:48,393 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 02:31:48 CST)" (scheduled at 2026-04-13 02:26:48.377513+08:00)
-2026-04-13 02:26:48,404 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:27:18 CST)" executed successfully
-2026-04-13 02:26:48,441 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 02:31:48 CST)" executed successfully
-2026-04-13 02:26:49,852 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 02:31:48 CST)" executed successfully
-2026-04-13 02:27:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:27:48 CST)" (scheduled at 2026-04-13 02:27:18.377255+08:00)
-2026-04-13 02:27:18,392 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:27:48 CST)" executed successfully
-2026-04-13 02:27:48,451 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:29:48 CST)" (scheduled at 2026-04-13 02:27:48.376848+08:00)
-2026-04-13 02:27:48,492 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:28:18 CST)" (scheduled at 2026-04-13 02:27:48.377255+08:00)
-2026-04-13 02:27:48,722 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:28:18 CST)" executed successfully
-2026-04-13 02:27:49,456 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:29:48 CST)" executed successfully
-2026-04-13 02:27:58,449 - payment - WARNING - 获取区块数据失败 (区块 81783609): ConnectionError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out.
-2026-04-13 02:28:03,620 - payment - WARNING - 获取区块数据失败 (区块 81783609): SSLError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Max retries exceeded with url: /wallet/getblockbynum (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
-2026-04-13 02:45:10,633 - apscheduler.executors.default - WARNING - Run time of job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:45:18 CST)" was missed by 0:00:22.255977
-2026-04-13 02:45:10,638 - apscheduler.executors.default - WARNING - Run time of job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:45:48 CST)" was missed by 0:01:22.261956
-2026-04-13 02:45:10,644 - apscheduler.executors.default - WARNING - Run time of job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 02:46:48 CST)" was missed by 0:03:22.264558
-2026-04-13 02:45:10,645 - apscheduler.executors.default - WARNING - Run time of job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 02:46:48 CST)" was missed by 0:03:22.267431
-2026-04-13 02:45:18,413 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:45:48 CST)" (scheduled at 2026-04-13 02:45:18.377255+08:00)
-2026-04-13 02:45:18,417 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:45:48 CST)" executed successfully
-2026-04-13 02:45:44,457 - payment - WARNING - 获取区块数据失败 (区块 81783629): SSLError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Max retries exceeded with url: /wallet/getblockbynum (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1147)')))
-2026-04-13 02:45:57,682 - apscheduler.executors.default - WARNING - Run time of job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 02:47:48 CST)" was missed by 0:00:09.288083
-2026-04-13 02:45:57,692 - apscheduler.executors.default - WARNING - Run time of job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 02:46:18 CST)" was missed by 0:00:09.313378
-2026-04-13 02:46:05,718 - payment - WARNING - 获取区块数据失败 (区块 81783629): ConnectionError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Max retries exceeded with url: /wallet/getblockbynum (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff9c509c40>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
-2026-04-13 14:42:04,569 - payment - WARNING - 获取区块数据失败 (区块 81783629): ConnectionError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Max retries exceeded with url: /wallet/getblockbynum (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff9c509310>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
-2026-04-13 14:42:05,862 - apscheduler.executors.default - WARNING - Run time of job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:42:18 CST)" was missed by 0:00:17.166445
-2026-04-13 14:42:06,612 - apscheduler.executors.default - WARNING - Run time of job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 14:46:48 CST)" was missed by 0:00:18.234727
-2026-04-13 14:42:06,609 - apscheduler.executors.default - WARNING - Run time of job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 14:46:48 CST)" was missed by 0:00:18.160765
-2026-04-13 14:42:06,641 - apscheduler.executors.default - WARNING - Run time of job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:43:48 CST)" was missed by 0:00:18.263848
-2026-04-13 14:42:28,977 - apscheduler.executors.default - WARNING - Run time of job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:42:48 CST)" was missed by 0:00:10.597678
-2026-04-13 14:42:48,462 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:43:18 CST)" (scheduled at 2026-04-13 14:42:48.377255+08:00)
-2026-04-13 14:42:48,536 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:43:18 CST)" executed successfully
-2026-04-13 14:43:16,963 - root - INFO - [REGISTER_USER] 调用注册API: http://app:3000/admin/api/bot-register-user, chat_id=825512163, username=HFTGID, nickname=HF定制开发
-2026-04-13 14:43:18,463 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:43:48 CST)" (scheduled at 2026-04-13 14:43:18.377255+08:00)
-2026-04-13 14:43:18,485 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:43:48 CST)" executed successfully
-2026-04-13 14:43:21,127 - root - INFO - [REGISTER_USER] 用户注册成功: chat_id=825512163, action=created
-2026-04-13 14:43:48,454 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:45:48 CST)" (scheduled at 2026-04-13 14:43:48.376848+08:00)
-2026-04-13 14:43:48,456 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:44:18 CST)" (scheduled at 2026-04-13 14:43:48.377255+08:00)
-2026-04-13 14:43:48,481 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:44:18 CST)" executed successfully
-2026-04-13 14:43:48,693 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:45:48 CST)" executed successfully
-2026-04-13 14:44:18,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:44:48 CST)" (scheduled at 2026-04-13 14:44:18.377255+08:00)
-2026-04-13 14:44:18,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:44:48 CST)" executed successfully
-2026-04-13 14:44:38,359 - payment - WARNING - 获取区块数据失败 (区块 81783699): ReadTimeout: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out. (read timeout=5)
-2026-04-13 14:44:48,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:45:18 CST)" (scheduled at 2026-04-13 14:44:48.377255+08:00)
-2026-04-13 14:44:48,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:45:18 CST)" executed successfully
-2026-04-13 14:45:18,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:45:48 CST)" (scheduled at 2026-04-13 14:45:18.377255+08:00)
-2026-04-13 14:45:18,393 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:45:48 CST)" executed successfully
-2026-04-13 14:45:48,397 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:47:48 CST)" (scheduled at 2026-04-13 14:45:48.376848+08:00)
-2026-04-13 14:45:48,403 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:46:18 CST)" (scheduled at 2026-04-13 14:45:48.377255+08:00)
-2026-04-13 14:45:48,428 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:46:18 CST)" executed successfully
-2026-04-13 14:45:48,619 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:47:48 CST)" executed successfully
-2026-04-13 14:46:18,501 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:46:48 CST)" (scheduled at 2026-04-13 14:46:18.377255+08:00)
-2026-04-13 14:46:18,572 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:46:48 CST)" executed successfully
-2026-04-13 14:46:48,450 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 14:51:48 CST)" (scheduled at 2026-04-13 14:46:48.377066+08:00)
-2026-04-13 14:46:48,454 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:47:18 CST)" (scheduled at 2026-04-13 14:46:48.377255+08:00)
-2026-04-13 14:46:48,457 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 14:51:48 CST)" (scheduled at 2026-04-13 14:46:48.377513+08:00)
-2026-04-13 14:46:48,481 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:47:18 CST)" executed successfully
-2026-04-13 14:46:48,588 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 14:51:48 CST)" executed successfully
-2026-04-13 14:46:49,691 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 14:51:48 CST)" executed successfully
-2026-04-13 14:47:18,395 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:47:48 CST)" (scheduled at 2026-04-13 14:47:18.377255+08:00)
-2026-04-13 14:47:18,406 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:47:48 CST)" executed successfully
-2026-04-13 14:47:48,384 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:49:48 CST)" (scheduled at 2026-04-13 14:47:48.376848+08:00)
-2026-04-13 14:47:48,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:48:18 CST)" (scheduled at 2026-04-13 14:47:48.377255+08:00)
-2026-04-13 14:47:48,392 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:48:18 CST)" executed successfully
-2026-04-13 14:47:48,438 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:49:48 CST)" executed successfully
-2026-04-13 14:48:18,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:48:48 CST)" (scheduled at 2026-04-13 14:48:18.377255+08:00)
-2026-04-13 14:48:18,408 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:48:48 CST)" executed successfully
-2026-04-13 14:48:48,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:49:18 CST)" (scheduled at 2026-04-13 14:48:48.377255+08:00)
-2026-04-13 14:48:48,395 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:49:18 CST)" executed successfully
-2026-04-13 14:49:18,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:49:48 CST)" (scheduled at 2026-04-13 14:49:18.377255+08:00)
-2026-04-13 14:49:18,402 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:49:48 CST)" executed successfully
-2026-04-13 14:49:48,385 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:51:48 CST)" (scheduled at 2026-04-13 14:49:48.376848+08:00)
-2026-04-13 14:49:48,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:50:18 CST)" (scheduled at 2026-04-13 14:49:48.377255+08:00)
-2026-04-13 14:49:48,399 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:50:18 CST)" executed successfully
-2026-04-13 14:49:48,464 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:51:48 CST)" executed successfully
-2026-04-13 14:50:18,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:50:48 CST)" (scheduled at 2026-04-13 14:50:18.377255+08:00)
-2026-04-13 14:50:18,389 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:50:48 CST)" executed successfully
-2026-04-13 14:50:48,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:51:18 CST)" (scheduled at 2026-04-13 14:50:48.377255+08:00)
-2026-04-13 14:50:48,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:51:18 CST)" executed successfully
-2026-04-13 14:51:18,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:51:48 CST)" (scheduled at 2026-04-13 14:51:18.377255+08:00)
-2026-04-13 14:51:18,384 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:51:48 CST)" executed successfully
-2026-04-13 14:51:48,389 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:53:48 CST)" (scheduled at 2026-04-13 14:51:48.376848+08:00)
-2026-04-13 14:51:48,390 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 14:56:48 CST)" (scheduled at 2026-04-13 14:51:48.377066+08:00)
-2026-04-13 14:51:48,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:52:18 CST)" (scheduled at 2026-04-13 14:51:48.377255+08:00)
-2026-04-13 14:51:48,390 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 14:56:48 CST)" (scheduled at 2026-04-13 14:51:48.377513+08:00)
-2026-04-13 14:51:48,401 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:52:18 CST)" executed successfully
-2026-04-13 14:51:48,440 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:53:48 CST)" executed successfully
-2026-04-13 14:51:48,441 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 14:56:48 CST)" executed successfully
-2026-04-13 14:51:49,408 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 14:56:48 CST)" executed successfully
-2026-04-13 14:52:18,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:52:48 CST)" (scheduled at 2026-04-13 14:52:18.377255+08:00)
-2026-04-13 14:52:18,416 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:52:48 CST)" executed successfully
-2026-04-13 14:52:48,396 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:53:18 CST)" (scheduled at 2026-04-13 14:52:48.377255+08:00)
-2026-04-13 14:52:48,403 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:53:18 CST)" executed successfully
-2026-04-13 14:53:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:53:48 CST)" (scheduled at 2026-04-13 14:53:18.377255+08:00)
-2026-04-13 14:53:18,398 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:53:48 CST)" executed successfully
-2026-04-13 14:53:48,386 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:55:48 CST)" (scheduled at 2026-04-13 14:53:48.376848+08:00)
-2026-04-13 14:53:48,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:54:18 CST)" (scheduled at 2026-04-13 14:53:48.377255+08:00)
-2026-04-13 14:53:48,401 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:54:18 CST)" executed successfully
-2026-04-13 14:53:48,465 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:55:48 CST)" executed successfully
-2026-04-13 14:54:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:54:48 CST)" (scheduled at 2026-04-13 14:54:18.377255+08:00)
-2026-04-13 14:54:18,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:54:48 CST)" executed successfully
-2026-04-13 14:54:48,388 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:55:18 CST)" (scheduled at 2026-04-13 14:54:48.377255+08:00)
-2026-04-13 14:54:48,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:55:18 CST)" executed successfully
-2026-04-13 14:55:18,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:55:48 CST)" (scheduled at 2026-04-13 14:55:18.377255+08:00)
-2026-04-13 14:55:18,394 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:55:48 CST)" executed successfully
-2026-04-13 14:55:48,383 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:57:48 CST)" (scheduled at 2026-04-13 14:55:48.376848+08:00)
-2026-04-13 14:55:48,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:56:18 CST)" (scheduled at 2026-04-13 14:55:48.377255+08:00)
-2026-04-13 14:55:48,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:56:18 CST)" executed successfully
-2026-04-13 14:55:48,429 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:57:48 CST)" executed successfully
-2026-04-13 14:56:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:56:48 CST)" (scheduled at 2026-04-13 14:56:18.377255+08:00)
-2026-04-13 14:56:18,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:56:48 CST)" executed successfully
-2026-04-13 14:56:48,399 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:01:48 CST)" (scheduled at 2026-04-13 14:56:48.377066+08:00)
-2026-04-13 14:56:48,401 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:57:18 CST)" (scheduled at 2026-04-13 14:56:48.377255+08:00)
-2026-04-13 14:56:48,402 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:01:48 CST)" (scheduled at 2026-04-13 14:56:48.377513+08:00)
-2026-04-13 14:56:48,413 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:57:18 CST)" executed successfully
-2026-04-13 14:56:48,514 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:01:48 CST)" executed successfully
-2026-04-13 14:56:50,691 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:01:48 CST)" executed successfully
-2026-04-13 14:57:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:57:48 CST)" (scheduled at 2026-04-13 14:57:18.377255+08:00)
-2026-04-13 14:57:18,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:57:48 CST)" executed successfully
-2026-04-13 14:57:48,385 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:59:48 CST)" (scheduled at 2026-04-13 14:57:48.376848+08:00)
-2026-04-13 14:57:48,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:58:18 CST)" (scheduled at 2026-04-13 14:57:48.377255+08:00)
-2026-04-13 14:57:48,407 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:58:18 CST)" executed successfully
-2026-04-13 14:57:48,463 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 14:59:48 CST)" executed successfully
-2026-04-13 14:58:18,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:58:48 CST)" (scheduled at 2026-04-13 14:58:18.377255+08:00)
-2026-04-13 14:58:18,401 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:58:48 CST)" executed successfully
-2026-04-13 14:58:19,937 - payment - WARNING - 获取区块数据失败 (区块 81784123): ReadTimeout: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out. (read timeout=5)
-2026-04-13 14:58:48,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:59:18 CST)" (scheduled at 2026-04-13 14:58:48.377255+08:00)
-2026-04-13 14:58:48,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:59:18 CST)" executed successfully
-2026-04-13 14:59:18,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:59:48 CST)" (scheduled at 2026-04-13 14:59:18.377255+08:00)
-2026-04-13 14:59:18,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 14:59:48 CST)" executed successfully
-2026-04-13 14:59:48,389 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:01:48 CST)" (scheduled at 2026-04-13 14:59:48.376848+08:00)
-2026-04-13 14:59:48,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:00:18 CST)" (scheduled at 2026-04-13 14:59:48.377255+08:00)
-2026-04-13 14:59:48,402 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:00:18 CST)" executed successfully
-2026-04-13 14:59:48,436 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:01:48 CST)" executed successfully
-2026-04-13 15:00:18,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:00:48 CST)" (scheduled at 2026-04-13 15:00:18.377255+08:00)
-2026-04-13 15:00:18,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:00:48 CST)" executed successfully
-2026-04-13 15:00:48,400 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:01:18 CST)" (scheduled at 2026-04-13 15:00:48.377255+08:00)
-2026-04-13 15:00:48,405 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:01:18 CST)" executed successfully
-2026-04-13 15:00:51,414 - payment - WARNING - 获取区块数据失败 (区块 81784195): ConnectionError: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out.
-2026-04-13 15:01:18,402 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:01:48 CST)" (scheduled at 2026-04-13 15:01:18.377255+08:00)
-2026-04-13 15:01:18,407 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:01:48 CST)" executed successfully
-2026-04-13 15:01:48,382 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:03:48 CST)" (scheduled at 2026-04-13 15:01:48.376848+08:00)
-2026-04-13 15:01:48,382 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:06:48 CST)" (scheduled at 2026-04-13 15:01:48.377066+08:00)
-2026-04-13 15:01:48,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:02:18 CST)" (scheduled at 2026-04-13 15:01:48.377255+08:00)
-2026-04-13 15:01:48,382 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:06:48 CST)" (scheduled at 2026-04-13 15:01:48.377513+08:00)
-2026-04-13 15:01:48,393 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:02:18 CST)" executed successfully
-2026-04-13 15:01:48,424 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:03:48 CST)" executed successfully
-2026-04-13 15:01:48,424 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:06:48 CST)" executed successfully
-2026-04-13 15:01:50,178 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:06:48 CST)" executed successfully
-2026-04-13 15:02:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:02:48 CST)" (scheduled at 2026-04-13 15:02:18.377255+08:00)
-2026-04-13 15:02:18,392 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:02:48 CST)" executed successfully
-2026-04-13 15:02:48,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:03:18 CST)" (scheduled at 2026-04-13 15:02:48.377255+08:00)
-2026-04-13 15:02:48,396 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:03:18 CST)" executed successfully
-2026-04-13 15:03:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:03:48 CST)" (scheduled at 2026-04-13 15:03:18.377255+08:00)
-2026-04-13 15:03:18,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:03:48 CST)" executed successfully
-2026-04-13 15:03:48,392 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:05:48 CST)" (scheduled at 2026-04-13 15:03:48.376848+08:00)
-2026-04-13 15:03:48,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:04:18 CST)" (scheduled at 2026-04-13 15:03:48.377255+08:00)
-2026-04-13 15:03:48,411 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:04:18 CST)" executed successfully
-2026-04-13 15:03:48,471 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:05:48 CST)" executed successfully
-2026-04-13 15:04:18,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:04:48 CST)" (scheduled at 2026-04-13 15:04:18.377255+08:00)
-2026-04-13 15:04:18,392 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:04:48 CST)" executed successfully
-2026-04-13 15:04:48,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:05:18 CST)" (scheduled at 2026-04-13 15:04:48.377255+08:00)
-2026-04-13 15:04:48,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:05:18 CST)" executed successfully
-2026-04-13 15:05:18,404 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:05:48 CST)" (scheduled at 2026-04-13 15:05:18.377255+08:00)
-2026-04-13 15:05:18,419 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:05:48 CST)" executed successfully
-2026-04-13 15:05:48,384 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:07:48 CST)" (scheduled at 2026-04-13 15:05:48.376848+08:00)
-2026-04-13 15:05:48,384 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:06:18 CST)" (scheduled at 2026-04-13 15:05:48.377255+08:00)
-2026-04-13 15:05:48,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:06:18 CST)" executed successfully
-2026-04-13 15:05:48,429 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:07:48 CST)" executed successfully
-2026-04-13 15:06:18,416 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:06:48 CST)" (scheduled at 2026-04-13 15:06:18.377255+08:00)
-2026-04-13 15:06:18,433 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:06:48 CST)" executed successfully
-2026-04-13 15:06:48,399 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:11:48 CST)" (scheduled at 2026-04-13 15:06:48.377066+08:00)
-2026-04-13 15:06:48,400 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:07:18 CST)" (scheduled at 2026-04-13 15:06:48.377255+08:00)
-2026-04-13 15:06:48,400 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:11:48 CST)" (scheduled at 2026-04-13 15:06:48.377513+08:00)
-2026-04-13 15:06:48,408 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:07:18 CST)" executed successfully
-2026-04-13 15:06:48,458 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:11:48 CST)" executed successfully
-2026-04-13 15:06:50,196 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:11:48 CST)" executed successfully
-2026-04-13 15:07:18,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:07:48 CST)" (scheduled at 2026-04-13 15:07:18.377255+08:00)
-2026-04-13 15:07:18,412 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:07:48 CST)" executed successfully
-2026-04-13 15:07:48,403 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:09:48 CST)" (scheduled at 2026-04-13 15:07:48.376848+08:00)
-2026-04-13 15:07:48,405 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:08:18 CST)" (scheduled at 2026-04-13 15:07:48.377255+08:00)
-2026-04-13 15:07:48,425 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:08:18 CST)" executed successfully
-2026-04-13 15:07:48,492 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:09:48 CST)" executed successfully
-2026-04-13 15:08:18,401 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:08:48 CST)" (scheduled at 2026-04-13 15:08:18.377255+08:00)
-2026-04-13 15:08:18,407 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:08:48 CST)" executed successfully
-2026-04-13 15:08:48,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:09:18 CST)" (scheduled at 2026-04-13 15:08:48.377255+08:00)
-2026-04-13 15:08:48,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:09:18 CST)" executed successfully
-2026-04-13 15:09:18,381 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:09:48 CST)" (scheduled at 2026-04-13 15:09:18.377255+08:00)
-2026-04-13 15:09:18,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:09:48 CST)" executed successfully
-2026-04-13 15:09:48,384 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:11:48 CST)" (scheduled at 2026-04-13 15:09:48.376848+08:00)
-2026-04-13 15:09:48,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:10:18 CST)" (scheduled at 2026-04-13 15:09:48.377255+08:00)
-2026-04-13 15:09:48,394 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:10:18 CST)" executed successfully
-2026-04-13 15:09:48,456 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:11:48 CST)" executed successfully
-2026-04-13 15:10:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:10:48 CST)" (scheduled at 2026-04-13 15:10:18.377255+08:00)
-2026-04-13 15:10:18,387 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:10:48 CST)" executed successfully
-2026-04-13 15:10:48,381 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:11:18 CST)" (scheduled at 2026-04-13 15:10:48.377255+08:00)
-2026-04-13 15:10:48,382 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:11:18 CST)" executed successfully
-2026-04-13 15:11:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:11:48 CST)" (scheduled at 2026-04-13 15:11:18.377255+08:00)
-2026-04-13 15:11:18,386 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:11:48 CST)" executed successfully
-2026-04-13 15:11:48,381 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:13:48 CST)" (scheduled at 2026-04-13 15:11:48.376848+08:00)
-2026-04-13 15:11:48,381 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:16:48 CST)" (scheduled at 2026-04-13 15:11:48.377066+08:00)
-2026-04-13 15:11:48,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:12:18 CST)" (scheduled at 2026-04-13 15:11:48.377255+08:00)
-2026-04-13 15:11:48,383 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:16:48 CST)" (scheduled at 2026-04-13 15:11:48.377513+08:00)
-2026-04-13 15:11:48,401 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:12:18 CST)" executed successfully
-2026-04-13 15:11:48,439 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:16:48 CST)" executed successfully
-2026-04-13 15:11:48,439 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:13:48 CST)" executed successfully
-2026-04-13 15:11:50,057 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:16:48 CST)" executed successfully
-2026-04-13 15:12:18,455 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:12:48 CST)" (scheduled at 2026-04-13 15:12:18.377255+08:00)
-2026-04-13 15:12:18,473 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:12:48 CST)" executed successfully
-2026-04-13 15:12:48,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:13:18 CST)" (scheduled at 2026-04-13 15:12:48.377255+08:00)
-2026-04-13 15:12:48,387 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:13:18 CST)" executed successfully
-2026-04-13 15:12:59,898 - root - INFO - [REGISTER_USER] 调用注册API: http://app:3000/admin/api/bot-register-user, chat_id=825512163, username=HFTGID, nickname=HF定制开发
-2026-04-13 15:13:00,594 - root - INFO - [REGISTER_USER] 用户注册成功: chat_id=825512163, action=updated
-2026-04-13 15:13:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:13:48 CST)" (scheduled at 2026-04-13 15:13:18.377255+08:00)
-2026-04-13 15:13:18,402 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:13:48 CST)" executed successfully
-2026-04-13 15:13:48,396 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:15:48 CST)" (scheduled at 2026-04-13 15:13:48.376848+08:00)
-2026-04-13 15:13:48,396 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:14:18 CST)" (scheduled at 2026-04-13 15:13:48.377255+08:00)
-2026-04-13 15:13:48,409 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:14:18 CST)" executed successfully
-2026-04-13 15:13:48,458 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:15:48 CST)" executed successfully
-2026-04-13 15:14:18,401 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:14:48 CST)" (scheduled at 2026-04-13 15:14:18.377255+08:00)
-2026-04-13 15:14:18,412 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:14:48 CST)" executed successfully
-2026-04-13 15:14:48,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:15:18 CST)" (scheduled at 2026-04-13 15:14:48.377255+08:00)
-2026-04-13 15:14:48,398 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:15:18 CST)" executed successfully
-2026-04-13 15:15:18,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:15:48 CST)" (scheduled at 2026-04-13 15:15:18.377255+08:00)
-2026-04-13 15:15:18,387 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:15:48 CST)" executed successfully
-2026-04-13 15:15:29,649 - payment - WARNING - 获取区块数据失败 (区块 81784659): ReadTimeout: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out. (read timeout=5)
-2026-04-13 15:15:48,383 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:17:48 CST)" (scheduled at 2026-04-13 15:15:48.376848+08:00)
-2026-04-13 15:15:48,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:16:18 CST)" (scheduled at 2026-04-13 15:15:48.377255+08:00)
-2026-04-13 15:15:48,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:16:18 CST)" executed successfully
-2026-04-13 15:15:48,465 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:17:48 CST)" executed successfully
-2026-04-13 15:16:18,400 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:16:48 CST)" (scheduled at 2026-04-13 15:16:18.377255+08:00)
-2026-04-13 15:16:18,407 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:16:48 CST)" executed successfully
-2026-04-13 15:16:48,404 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:21:48 CST)" (scheduled at 2026-04-13 15:16:48.377066+08:00)
-2026-04-13 15:16:48,404 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:17:18 CST)" (scheduled at 2026-04-13 15:16:48.377255+08:00)
-2026-04-13 15:16:48,404 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:21:48 CST)" (scheduled at 2026-04-13 15:16:48.377513+08:00)
-2026-04-13 15:16:48,410 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:17:18 CST)" executed successfully
-2026-04-13 15:16:48,444 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:21:48 CST)" executed successfully
-2026-04-13 15:16:49,334 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:21:48 CST)" executed successfully
-2026-04-13 15:17:18,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:17:48 CST)" (scheduled at 2026-04-13 15:17:18.377255+08:00)
-2026-04-13 15:17:18,389 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:17:48 CST)" executed successfully
-2026-04-13 15:17:48,385 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:19:48 CST)" (scheduled at 2026-04-13 15:17:48.376848+08:00)
-2026-04-13 15:17:48,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:18:18 CST)" (scheduled at 2026-04-13 15:17:48.377255+08:00)
-2026-04-13 15:17:48,392 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:18:18 CST)" executed successfully
-2026-04-13 15:17:48,432 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:19:48 CST)" executed successfully
-2026-04-13 15:18:18,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:18:48 CST)" (scheduled at 2026-04-13 15:18:18.377255+08:00)
-2026-04-13 15:18:18,393 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:18:48 CST)" executed successfully
-2026-04-13 15:18:48,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:19:18 CST)" (scheduled at 2026-04-13 15:18:48.377255+08:00)
-2026-04-13 15:18:48,393 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:19:18 CST)" executed successfully
-2026-04-13 15:19:18,392 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:19:48 CST)" (scheduled at 2026-04-13 15:19:18.377255+08:00)
-2026-04-13 15:19:18,395 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:19:48 CST)" executed successfully
-2026-04-13 15:19:48,389 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:21:48 CST)" (scheduled at 2026-04-13 15:19:48.376848+08:00)
-2026-04-13 15:19:48,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:20:18 CST)" (scheduled at 2026-04-13 15:19:48.377255+08:00)
-2026-04-13 15:19:48,396 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:20:18 CST)" executed successfully
-2026-04-13 15:19:48,423 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:21:48 CST)" executed successfully
-2026-04-13 15:20:18,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:20:48 CST)" (scheduled at 2026-04-13 15:20:18.377255+08:00)
-2026-04-13 15:20:18,396 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:20:48 CST)" executed successfully
-2026-04-13 15:20:48,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:21:18 CST)" (scheduled at 2026-04-13 15:20:48.377255+08:00)
-2026-04-13 15:20:48,386 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:21:18 CST)" executed successfully
-2026-04-13 15:21:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:21:48 CST)" (scheduled at 2026-04-13 15:21:18.377255+08:00)
-2026-04-13 15:21:18,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:21:48 CST)" executed successfully
-2026-04-13 15:21:48,405 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:26:48 CST)" (scheduled at 2026-04-13 15:21:48.377066+08:00)
-2026-04-13 15:21:48,409 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:23:48 CST)" (scheduled at 2026-04-13 15:21:48.376848+08:00)
-2026-04-13 15:21:48,488 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:26:48 CST)" (scheduled at 2026-04-13 15:21:48.377513+08:00)
-2026-04-13 15:21:48,461 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:22:18 CST)" (scheduled at 2026-04-13 15:21:48.377255+08:00)
-2026-04-13 15:21:48,531 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:22:18 CST)" executed successfully
-2026-04-13 15:21:48,590 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:23:48 CST)" executed successfully
-2026-04-13 15:21:48,590 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:26:48 CST)" executed successfully
-2026-04-13 15:21:49,800 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:26:48 CST)" executed successfully
-2026-04-13 15:22:18,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:22:48 CST)" (scheduled at 2026-04-13 15:22:18.377255+08:00)
-2026-04-13 15:22:18,395 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:22:48 CST)" executed successfully
-2026-04-13 15:22:48,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:23:18 CST)" (scheduled at 2026-04-13 15:22:48.377255+08:00)
-2026-04-13 15:22:48,384 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:23:18 CST)" executed successfully
-2026-04-13 15:23:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:23:48 CST)" (scheduled at 2026-04-13 15:23:18.377255+08:00)
-2026-04-13 15:23:18,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:23:48 CST)" executed successfully
-2026-04-13 15:23:48,381 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:25:48 CST)" (scheduled at 2026-04-13 15:23:48.376848+08:00)
-2026-04-13 15:23:48,383 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:24:18 CST)" (scheduled at 2026-04-13 15:23:48.377255+08:00)
-2026-04-13 15:23:48,402 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:24:18 CST)" executed successfully
-2026-04-13 15:23:48,550 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:25:48 CST)" executed successfully
-2026-04-13 15:24:18,500 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:24:48 CST)" (scheduled at 2026-04-13 15:24:18.377255+08:00)
-2026-04-13 15:24:18,558 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:24:48 CST)" executed successfully
-2026-04-13 15:24:48,460 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:25:18 CST)" (scheduled at 2026-04-13 15:24:48.377255+08:00)
-2026-04-13 15:24:48,474 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:25:18 CST)" executed successfully
-2026-04-13 15:25:18,382 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:25:48 CST)" (scheduled at 2026-04-13 15:25:18.377255+08:00)
-2026-04-13 15:25:18,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:25:48 CST)" executed successfully
-2026-04-13 15:25:48,393 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:27:48 CST)" (scheduled at 2026-04-13 15:25:48.376848+08:00)
-2026-04-13 15:25:48,394 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:26:18 CST)" (scheduled at 2026-04-13 15:25:48.377255+08:00)
-2026-04-13 15:25:48,403 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:26:18 CST)" executed successfully
-2026-04-13 15:25:48,512 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:27:48 CST)" executed successfully
-2026-04-13 15:26:18,419 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:26:48 CST)" (scheduled at 2026-04-13 15:26:18.377255+08:00)
-2026-04-13 15:26:18,453 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:26:48 CST)" executed successfully
-2026-04-13 15:26:48,413 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:31:48 CST)" (scheduled at 2026-04-13 15:26:48.377066+08:00)
-2026-04-13 15:26:48,415 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:27:18 CST)" (scheduled at 2026-04-13 15:26:48.377255+08:00)
-2026-04-13 15:26:48,416 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:31:48 CST)" (scheduled at 2026-04-13 15:26:48.377513+08:00)
-2026-04-13 15:26:48,446 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:27:18 CST)" executed successfully
-2026-04-13 15:26:48,668 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:31:48 CST)" executed successfully
-2026-04-13 15:26:49,582 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:31:48 CST)" executed successfully
-2026-04-13 15:27:18,403 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:27:48 CST)" (scheduled at 2026-04-13 15:27:18.377255+08:00)
-2026-04-13 15:27:18,414 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:27:48 CST)" executed successfully
-2026-04-13 15:27:24,277 - payment - WARNING - 获取区块数据失败 (区块 81785042): ReadTimeout: HTTPSConnectionPool(host='api.trongrid.io', port=443): Read timed out. (read timeout=5)
-2026-04-13 15:27:48,389 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:29:48 CST)" (scheduled at 2026-04-13 15:27:48.376848+08:00)
-2026-04-13 15:27:48,390 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:28:18 CST)" (scheduled at 2026-04-13 15:27:48.377255+08:00)
-2026-04-13 15:27:48,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:28:18 CST)" executed successfully
-2026-04-13 15:27:48,464 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:29:48 CST)" executed successfully
-2026-04-13 15:28:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:28:48 CST)" (scheduled at 2026-04-13 15:28:18.377255+08:00)
-2026-04-13 15:28:18,393 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:28:48 CST)" executed successfully
-2026-04-13 15:28:48,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:29:18 CST)" (scheduled at 2026-04-13 15:28:48.377255+08:00)
-2026-04-13 15:28:48,400 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:29:18 CST)" executed successfully
-2026-04-13 15:29:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:29:48 CST)" (scheduled at 2026-04-13 15:29:18.377255+08:00)
-2026-04-13 15:29:18,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:29:48 CST)" executed successfully
-2026-04-13 15:29:48,408 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:31:48 CST)" (scheduled at 2026-04-13 15:29:48.376848+08:00)
-2026-04-13 15:29:48,410 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:30:18 CST)" (scheduled at 2026-04-13 15:29:48.377255+08:00)
-2026-04-13 15:29:48,430 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:30:18 CST)" executed successfully
-2026-04-13 15:29:48,477 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:31:48 CST)" executed successfully
-2026-04-13 15:30:18,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:30:48 CST)" (scheduled at 2026-04-13 15:30:18.377255+08:00)
-2026-04-13 15:30:18,400 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:30:48 CST)" executed successfully
-2026-04-13 15:30:48,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:31:18 CST)" (scheduled at 2026-04-13 15:30:48.377255+08:00)
-2026-04-13 15:30:48,390 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:31:18 CST)" executed successfully
-2026-04-13 15:31:18,385 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:31:48 CST)" (scheduled at 2026-04-13 15:31:18.377255+08:00)
-2026-04-13 15:31:18,388 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:31:48 CST)" executed successfully
-2026-04-13 15:31:48,395 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:33:48 CST)" (scheduled at 2026-04-13 15:31:48.376848+08:00)
-2026-04-13 15:31:48,395 - apscheduler.executors.default - INFO - Running job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:36:48 CST)" (scheduled at 2026-04-13 15:31:48.377066+08:00)
-2026-04-13 15:31:48,398 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:32:18 CST)" (scheduled at 2026-04-13 15:31:48.377255+08:00)
-2026-04-13 15:31:48,399 - apscheduler.executors.default - INFO - Running job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:36:48 CST)" (scheduled at 2026-04-13 15:31:48.377513+08:00)
-2026-04-13 15:31:48,420 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:32:18 CST)" executed successfully
-2026-04-13 15:31:48,451 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:33:48 CST)" executed successfully
-2026-04-13 15:31:48,451 - apscheduler.executors.default - INFO - Job "auto_manage_bishu_packages (trigger: interval[0:05:00], next run at: 2026-04-13 15:36:48 CST)" executed successfully
-2026-04-13 15:31:51,157 - apscheduler.executors.default - INFO - Job "webhook_health_check (trigger: interval[0:05:00], next run at: 2026-04-13 15:36:48 CST)" executed successfully
-2026-04-13 15:32:18,427 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:32:48 CST)" (scheduled at 2026-04-13 15:32:18.377255+08:00)
-2026-04-13 15:32:18,461 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:32:48 CST)" executed successfully
-2026-04-13 15:32:48,401 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:33:18 CST)" (scheduled at 2026-04-13 15:32:48.377255+08:00)
-2026-04-13 15:32:48,405 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:33:18 CST)" executed successfully
-2026-04-13 15:33:18,389 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:33:48 CST)" (scheduled at 2026-04-13 15:33:18.377255+08:00)
-2026-04-13 15:33:18,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:33:48 CST)" executed successfully
-2026-04-13 15:33:48,387 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:35:48 CST)" (scheduled at 2026-04-13 15:33:48.376848+08:00)
-2026-04-13 15:33:48,387 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:34:18 CST)" (scheduled at 2026-04-13 15:33:48.377255+08:00)
-2026-04-13 15:33:48,400 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:34:18 CST)" executed successfully
-2026-04-13 15:33:48,445 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:35:48 CST)" executed successfully
-2026-04-13 15:34:18,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:34:48 CST)" (scheduled at 2026-04-13 15:34:18.377255+08:00)
-2026-04-13 15:34:18,397 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:34:48 CST)" executed successfully
-2026-04-13 15:34:48,393 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:35:18 CST)" (scheduled at 2026-04-13 15:34:48.377255+08:00)
-2026-04-13 15:34:48,401 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:35:18 CST)" executed successfully
-2026-04-13 15:35:18,386 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:35:48 CST)" (scheduled at 2026-04-13 15:35:18.377255+08:00)
-2026-04-13 15:35:18,391 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:35:48 CST)" executed successfully
-2026-04-13 15:35:48,389 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:37:48 CST)" (scheduled at 2026-04-13 15:35:48.376848+08:00)
-2026-04-13 15:35:48,391 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:36:18 CST)" (scheduled at 2026-04-13 15:35:48.377255+08:00)
-2026-04-13 15:35:48,404 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-13 15:36:18 CST)" executed successfully
-2026-04-13 15:35:48,482 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-13 15:37:48 CST)" executed successfully
+2026-04-25 20:44:34,871 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:44:34,871 - root - INFO - Webhook模式：充值通知路由已挂载到webhook server，跳过独立通知服务器
+2026-04-25 20:44:35,892 - root - INFO - 文件系统监听器（watchdog）已启动
+2026-04-25 20:44:35,892 - root - INFO - 重载标记文件监听线程已启动（永不停止）
+2026-04-25 20:44:35,892 - root - INFO - 检测到重载标记文件，开始重载配置...
+2026-04-25 20:44:35,893 - root - INFO - 检测到配置文件mtime变化: /app/config.txt
+2026-04-25 20:44:35,893 - root - INFO - 配置文件mtime轮询线程已启动（永不停止，每秒检查一次）
+2026-04-25 20:44:35,893 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:44:35,893 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:44:35,894 - root - INFO - 配置文件热重载监听器已启动（永不停止），监听: /app/config.txt
+2026-04-25 20:44:35,894 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:44:35,894 - root - INFO - 配置文件热重载功能已启用
+2026-04-25 20:44:35,895 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:44:35,895 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:44:35,895 - root - ERROR - [同步配置] 错误：bot_username 为空！
+2026-04-25 20:44:35,896 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:35,896 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:44:35,896 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:44:35,896 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:44:35,896 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:35,897 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:44:35,897 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:44:35,897 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:44:35,897 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:44:35,898 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:44:35,898 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:44:35,898 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:44:35,898 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:44:35,898 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:44:35,899 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:44:35,899 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:44:35,899 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:44:35,899 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:44:35,899 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:44:35,900 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:44:35,900 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:44:35,900 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:44:35,900 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:44:35,901 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:44:35,901 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:44:35,901 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:44:35,901 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:44:35,902 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:44:35,902 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:44:35,902 - root - INFO - 主键盘菜单配置已初始化
+2026-04-25 20:44:35,904 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:44:35,904 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:44:35,904 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:44:35,904 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:44:35,905 - root - INFO - 关键词回复配置已初始化
+2026-04-25 20:44:35,905 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:44:35,905 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:44:35,906 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:44:35,909 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:44:35,909 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:35,909 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:36,471 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:44:36,472 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:44:36,699 - root - INFO - 机器人用户名: HFTGNLTRXbot
+2026-04-25 20:44:36,757 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:44:36,757 - root - INFO - [返利结算] 功能已禁用（代码已注释）
+2026-04-25 20:44:36,757 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:44:36,758 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:44:36,758 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:44:36,758 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:44:36,758 - root - INFO - [Webhook健康检查] 已启用，每5分钟检查一次
+2026-04-25 20:44:36,759 - apscheduler.scheduler - INFO - Added job "scheduled_message" to job store "default"
+2026-04-25 20:44:36,759 - apscheduler.scheduler - INFO - Added job "check_bishu_orders_payment" to job store "default"
+2026-04-25 20:44:36,759 - apscheduler.scheduler - INFO - Added job "auto_manage_bishu_packages" to job store "default"
+2026-04-25 20:44:36,759 - apscheduler.scheduler - INFO - Added job "query_and_recharge" to job store "default"
+2026-04-25 20:44:36,760 - apscheduler.scheduler - INFO - Added job "webhook_health_check" to job store "default"
+2026-04-25 20:44:36,760 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-25 20:44:37,023 - root - INFO - 已清除旧的 webhook 配置
+2026-04-25 20:44:37,025 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-25 20:44:37,280 - root - INFO - Webhook 已启动: listen=0.0.0.0:8443, url=https://tgnl-admin-bot.txsw.top/webhook
+2026-04-25 20:44:37,281 - root - INFO - 充值通知路由已挂载到 webhook server (8443)
+2026-04-25 20:44:37,496 - root - INFO - 通过mtime轮询重载配置成功
+2026-04-25 20:44:37,497 - root - INFO - 检测到关键词回复文件mtime变化: keyword_replies.json
+2026-04-25 20:44:37,497 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:44:37,498 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:44:37,498 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:44:37,498 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:37,498 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:44:37,499 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:44:37,500 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:44:37,500 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:44:37,500 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:44:37,500 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:44:37,525 - root - INFO - 通过重载标记文件重载配置成功
+2026-04-25 20:44:37,702 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:44:38,161 - root - INFO - 通过mtime轮询重载关键词回复成功
+2026-04-25 20:45:06,786 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:45:36 CST)" (scheduled at 2026-04-25 20:45:06.758387+08:00)
+2026-04-25 20:45:06,794 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:45:36 CST)" executed successfully
+2026-04-25 20:45:36,777 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:46:06 CST)" (scheduled at 2026-04-25 20:45:36.758387+08:00)
+2026-04-25 20:45:36,780 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:46:06 CST)" executed successfully
+2026-04-25 20:46:06,764 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:46:36 CST)" (scheduled at 2026-04-25 20:46:06.758387+08:00)
+2026-04-25 20:46:06,770 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:46:36 CST)" executed successfully
+2026-04-25 20:46:36,766 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:48:36 CST)" (scheduled at 2026-04-25 20:46:36.757908+08:00)
+2026-04-25 20:46:36,768 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:47:06 CST)" (scheduled at 2026-04-25 20:46:36.758387+08:00)
+2026-04-25 20:46:36,772 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:47:06 CST)" executed successfully
+2026-04-25 20:46:36,867 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:48:36 CST)" executed successfully
+2026-04-25 20:47:06,776 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:47:36 CST)" (scheduled at 2026-04-25 20:47:06.758387+08:00)
+2026-04-25 20:47:06,783 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:47:36 CST)" executed successfully
+2026-04-25 20:47:36,767 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:48:06 CST)" (scheduled at 2026-04-25 20:47:36.758387+08:00)
+2026-04-25 20:47:36,780 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:48:06 CST)" executed successfully
+2026-04-25 20:48:06,770 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:48:36 CST)" (scheduled at 2026-04-25 20:48:06.758387+08:00)
+2026-04-25 20:48:06,785 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:48:36 CST)" executed successfully
+2026-04-25 20:48:36,761 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:50:36 CST)" (scheduled at 2026-04-25 20:48:36.757908+08:00)
+2026-04-25 20:48:36,762 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:49:06 CST)" (scheduled at 2026-04-25 20:48:36.758387+08:00)
+2026-04-25 20:48:36,769 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:49:06 CST)" executed successfully
+2026-04-25 20:48:36,864 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:50:36 CST)" executed successfully
+2026-04-25 20:49:06,779 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:49:36 CST)" (scheduled at 2026-04-25 20:49:06.758387+08:00)
+2026-04-25 20:49:06,789 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:49:36 CST)" executed successfully
+2026-04-25 20:49:32,748 - telegram.ext.updater - INFO - Received signal 15 (SIGTERM), stopping...
+2026-04-25 20:49:32,751 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2026-04-25 20:49:49,757 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:49:49,759 - root - INFO - Webhook模式：充值通知路由已挂载到webhook server，跳过独立通知服务器
+2026-04-25 20:49:50,775 - root - INFO - 文件系统监听器（watchdog）已启动
+2026-04-25 20:49:50,783 - root - INFO - 重载标记文件监听线程已启动（永不停止）
+2026-04-25 20:49:50,784 - root - INFO - 检测到重载标记文件，开始重载配置...
+2026-04-25 20:49:50,784 - root - INFO - 配置文件mtime轮询线程已启动（永不停止，每秒检查一次）
+2026-04-25 20:49:50,784 - root - INFO - 检测到配置文件mtime变化: /app/config.txt
+2026-04-25 20:49:50,784 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:49:50,785 - root - INFO - 配置文件热重载监听器已启动（永不停止），监听: /app/config.txt
+2026-04-25 20:49:50,785 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:49:50,787 - root - INFO - 配置文件热重载功能已启用
+2026-04-25 20:49:50,787 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:49:50,788 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:49:50,790 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:49:50,790 - root - ERROR - [同步配置] 错误：bot_username 为空！
+2026-04-25 20:49:50,791 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:49:50,791 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:50,791 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:49:50,791 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:50,792 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:49:50,792 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:49:50,792 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:49:50,792 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:49:50,793 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:49:50,793 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:49:50,793 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:49:50,793 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:49:50,793 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:49:50,794 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:49:50,794 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:49:50,794 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:49:50,794 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:49:50,794 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:49:50,795 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:49:50,795 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:49:50,795 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:49:50,795 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:49:50,796 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:49:50,796 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:49:50,796 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:49:50,796 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:49:50,796 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:49:50,797 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:49:50,797 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:49:50,797 - root - INFO - 主键盘菜单配置已初始化
+2026-04-25 20:49:50,797 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:49:50,798 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:49:50,798 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:49:50,799 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:49:50,799 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:49:50,799 - root - INFO - 关键词回复配置已初始化
+2026-04-25 20:49:50,799 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:49:50,799 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:49:50,804 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:50,805 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:49:50,807 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:51,413 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:49:51,415 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:49:51,597 - root - INFO - 机器人用户名: HFTGNLTRXbot
+2026-04-25 20:49:51,656 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:49:51,656 - root - INFO - [返利结算] 功能已禁用（代码已注释）
+2026-04-25 20:49:51,657 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:49:51,657 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:49:51,657 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:49:51,657 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-25 20:49:51,657 - root - INFO - [Webhook健康检查] 已启用，每5分钟检查一次
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Added job "scheduled_message" to job store "default"
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Added job "check_bishu_orders_payment" to job store "default"
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Added job "auto_manage_bishu_packages" to job store "default"
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Added job "query_and_recharge" to job store "default"
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Added job "webhook_health_check" to job store "default"
+2026-04-25 20:49:51,658 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-25 20:49:51,908 - root - INFO - 已清除旧的 webhook 配置
+2026-04-25 20:49:51,909 - apscheduler.scheduler - INFO - Scheduler started
+2026-04-25 20:49:52,172 - root - INFO - Webhook 已启动: listen=0.0.0.0:8443, url=https://tgnl-admin-bot.txsw.top/webhook
+2026-04-25 20:49:52,181 - root - INFO - 充值通知路由已挂载到 webhook server (8443)
+2026-04-25 20:49:52,388 - root - INFO - 通过重载标记文件重载配置成功
+2026-04-25 20:49:52,452 - root - INFO - 通过mtime轮询重载配置成功
+2026-04-25 20:49:52,453 - root - INFO - 检测到关键词回复文件mtime变化: keyword_replies.json
+2026-04-25 20:49:52,453 - root - INFO - 开始重新加载配置文件...
+2026-04-25 20:49:52,455 - root - INFO - 已从当前目录 .env 直接加载环境变量
+2026-04-25 20:49:52,456 - root - INFO - 能量池API（.env覆盖）已更新为: https://tgnl-home.aloure-web.top
+2026-04-25 20:49:52,456 - root - INFO - 机器人回调地址（.env覆盖）已更新为: https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:52,456 - root - INFO - 主键盘菜单配置已加载: 8 个按钮，chain_id 映射: 8 个
+2026-04-25 20:49:52,457 - root - INFO -   label_to_chain_id: '📦 笔数套餐' -> chain_id=1
+2026-04-25 20:49:52,457 - root - INFO -   label_to_chain_id: '✅ USDT转TRX' -> chain_id=3
+2026-04-25 20:49:52,457 - root - INFO -   label_to_chain_id: '🔍 查交易' -> chain_id=4
+2026-04-25 20:49:52,457 - root - INFO -   label_to_chain_id: '⚡ TRX转能量' -> chain_id=5
+2026-04-25 20:49:52,458 - root - INFO -   label_to_chain_id: '📍 已监听地址' -> chain_id=6
+2026-04-25 20:49:52,458 - root - INFO -   label_to_chain_id: '🔔 开始/结束监听' -> chain_id=7
+2026-04-25 20:49:52,458 - root - INFO -   label_to_chain_id: '💳 我要充值' -> chain_id=8
+2026-04-25 20:49:52,459 - root - INFO -   label_to_chain_id: '👤 个人中心' -> chain_id=9
+2026-04-25 20:49:52,459 - root - INFO - 关键词回复配置已加载
+2026-04-25 20:49:52,460 - root - INFO - 机器人用户名已更新为: HFTGNLTRXbot
+2026-04-25 20:49:52,460 - root - INFO - 配置文件重新加载成功
+2026-04-25 20:49:52,460 - root - INFO - [同步配置] 发送配置到能量池: botUsername=HFTGNLTRXbot, apiUsername=hf2333, botNotifyUrl=https://tgnl-admin-bot.txsw.top/api/recharge-notify
+2026-04-25 20:49:52,694 - root - INFO - 配置已同步到能量池系统
+2026-04-25 20:49:53,165 - root - INFO - 通过mtime轮询重载关键词回复成功
+2026-04-25 20:50:21,667 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:50:51 CST)" (scheduled at 2026-04-25 20:50:21.657573+08:00)
+2026-04-25 20:50:21,678 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:50:51 CST)" executed successfully
+2026-04-25 20:50:51,673 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:51:21 CST)" (scheduled at 2026-04-25 20:50:51.657573+08:00)
+2026-04-25 20:50:51,680 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:51:21 CST)" executed successfully
+2026-04-25 20:51:21,668 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:51:51 CST)" (scheduled at 2026-04-25 20:51:21.657573+08:00)
+2026-04-25 20:51:21,671 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:51:51 CST)" executed successfully
+2026-04-25 20:51:51,668 - apscheduler.executors.default - INFO - Running job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:53:51 CST)" (scheduled at 2026-04-25 20:51:51.657107+08:00)
+2026-04-25 20:51:51,669 - apscheduler.executors.default - INFO - Running job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:52:21 CST)" (scheduled at 2026-04-25 20:51:51.657573+08:00)
+2026-04-25 20:51:51,680 - apscheduler.executors.default - INFO - Job "query_and_recharge (trigger: interval[0:00:30], next run at: 2026-04-25 20:52:21 CST)" executed successfully
+2026-04-25 20:51:51,765 - apscheduler.executors.default - INFO - Job "check_bishu_orders_payment (trigger: interval[0:02:00], next run at: 2026-04-25 20:53:51 CST)" executed successfully
+2026-04-25 20:52:16,780 - telegram.ext.updater - INFO - Received signal 15 (SIGTERM), stopping...
+2026-04-25 20:52:16,783 - apscheduler.scheduler - INFO - Scheduler has been shut down
